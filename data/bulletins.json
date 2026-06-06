@@ -1,32 +1,74 @@
 {
   "bulletins": [
     {
-      "id": "bulletin-1",
+      "id": "bulletin-cgl",
+      "date": "June 06, 2026",
+      "title": "Combined Graduate Level Examination (CGL) 2026 - Online application window closing soon.",
+      "link": "https://ssc.gov.in/ApplicationForm/cglform",
+      "is_new": true
+    },
+    {
+      "id": "bulletin-chsl",
+      "date": "June 06, 2026",
+      "title": "Combined Higher Secondary Level (CHSL) 2026 - Admit card release date announced.",
+      "link": "https://ssc.gov.in/ApplicationForm/chslform",
+      "is_new": true
+    },
+    {
+      "id": "bulletin-steno",
       "date": "June 05, 2026",
-      "title": "Advisory against exam malpractice, paper distribution networks, and solver gangs released by executive board.",
-      "link": "#",
+      "title": "Stenographer Grade 'C' and 'D' Examination 2026 - Exam pattern revised.",
+      "link": "https://ssc.gov.in/ApplicationForm/Index",
       "is_new": true
     },
     {
-      "id": "bulletin-2",
+      "id": "bulletin-capf",
       "date": "June 04, 2026",
-      "title": "Direct operational link activated for downloading candidate admit slips across core zones.",
-      "link": "#",
+      "title": "Sub-Inspector in Delhi Police & CAPF Examination 2026 - PET schedule released.",
+      "link": "https://ssc.gov.in/ApplicationForm/sicpoform",
       "is_new": true
     },
     {
-      "id": "bulletin-3",
-      "date": "May 28, 2026",
-      "title": "Local administration sets up dedicated helpdesks at railway stations and bus terminals for traveling aspirants.",
-      "link": "#",
+      "id": "bulletin-je",
+      "date": "June 03, 2026",
+      "title": "Junior Engineer Examination 2026 - Last date to apply extended.",
+      "link": "https://ssc.gov.in/ApplicationForm/jemecform",
+      "is_new": true
+    },
+    {
+      "id": "bulletin-mts",
+      "date": "June 02, 2026",
+      "title": "Multi Tasking Staff (MTS) Examination - Application correction window opened.",
+      "link": "https://ssc.gov.in/ApplicationForm/Mtsform",
       "is_new": false
     },
     {
-      "id": "bulletin-4",
-      "date": "May 07, 2026",
-      "title": "Final answer key matrices published for upstream Sub-Inspector administrative examinations.",
-      "link": "#",
+      "id": "bulletin-jht",
+      "date": "May 30, 2026",
+      "title": "Combined Hindi Translators Examination 2026 - Answer key challenge active.",
+      "link": "https://ssc.gov.in/ApplicationForm/jhtform",
       "is_new": false
+    },
+    {
+      "id": "bulletin-rhq",
+      "date": "May 28, 2026",
+      "title": "Selection Posts Examination - Result declared for various categories.",
+      "link": "https://ssc.gov.in/RHQSelectionPost/ApplicationForm",
+      "is_new": false
+    },
+    {
+      "id": "bulletin-malpractice",
+      "date": "June 05, 2026",
+      "title": "⚠️ ADVISORY: Strict action against exam malpractice and solver gangs.",
+      "link": "https://ssc.gov.in/advisory",
+      "is_new": true
+    },
+    {
+      "id": "bulletin-admit",
+      "date": "June 04, 2026",
+      "title": "Direct link activated for downloading candidate admit slips across all zones.",
+      "link": "https://ssc.gov.in/admitcard",
+      "is_new": true
     }
   ]
 }
