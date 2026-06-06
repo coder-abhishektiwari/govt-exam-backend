@@ -9,27 +9,11 @@ import re
 import asyncio
 import hashlib
 import json
+from pathlib import Path  # <-- ADD THIS IMPORT
 
 # WeasyPrint with specific font config
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
-from pathlib import Path  # Yeh import add kar (imports ke saath)
-
-# ============ HINDI FONT CONFIGURATION ============
-FONT_DIR = Path(__file__).parent / "fonts"
-HINDI_FONT_PATH = None
-
-# Check for any .ttf file in fonts directory
-if FONT_DIR.exists():
-    font_files = list(FONT_DIR.glob("*.ttf")) + list(FONT_DIR.glob("*.otf"))
-    if font_files:
-        HINDI_FONT_PATH = font_files[0]  # Use first font found
-        print(f"✅ Font loaded: {HINDI_FONT_PATH.name}")
-    else:
-        print("⚠️ No font files found in 'fonts' directory")
-else:
-    print("⚠️ 'fonts' directory does not exist")
-# =================================================
 
 app = FastAPI(title="PDF Converter")
 app.add_middleware(
@@ -53,6 +37,22 @@ class Topic(BaseModel):
 class Section(BaseModel):
     name: str
     topics: List[Topic]
+
+# ============ HINDI FONT CONFIGURATION ============
+FONT_DIR = Path(__file__).parent / "fonts"
+HINDI_FONT_PATH = None
+
+# Check for any font file in fonts directory
+if FONT_DIR.exists():
+    font_files = list(FONT_DIR.glob("*.ttf")) + list(FONT_DIR.glob("*.otf"))
+    if font_files:
+        HINDI_FONT_PATH = font_files[0]
+        print(f"✅ Font loaded: {HINDI_FONT_PATH.name}")
+    else:
+        print("⚠️ No font files found in 'fonts' directory")
+else:
+    print("⚠️ 'fonts' directory does not exist")
+# =================================================
 
 # Helpers
 def safe(value) -> str:
@@ -138,7 +138,6 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
     </html>
     """
 
-    
 # Global font config
 font_config = FontConfiguration()
 
