@@ -29,3 +29,9 @@ class QuestionPaper(BaseModel):
     total_questions: int
     sections: List[Section]
     metadata: Dict[str, Any] = Field(default_factory=dict)
+
+
+class PDFGenerationRequest(BaseModel):
+    data: List[Section]
+    title: str = "Question Bank"
+    filename: str = "QuestionBank"

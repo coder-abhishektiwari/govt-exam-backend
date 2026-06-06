@@ -12,7 +12,7 @@ from datetime import datetime
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
 from config import CACHE_DIR, MAX_CACHE_FILES
-from models import QuestionPaper, Section
+from models import PDFGenerationRequest, QuestionPaper, Section
 from paper_repository import paper_repository
 
 app = FastAPI(title="Question Paper PDF Generator")
@@ -209,7 +209,8 @@ async def home():
         "endpoints": {
             "list": "GET /papers",
             "get": "GET /paper/{paper_id}",
-            "pdf": "GET /paper/{paper_id}/pdf"
+            "pdf": "GET /paper/{paper_id}/pdf",
+            "generate_pdf": "POST /generate-pdf"
         }
     }
 
@@ -229,6 +230,31 @@ async def get_paper(paper_id: str):
     if not paper_data:
         raise HTTPException(status_code=404, detail=f"Paper '{paper_id}' not found")
     return paper_data
+
+@app.post("/generate-pdf")
+async def generate_pdf_from_payload(request: PDFGenerationRequest):
+    """Generate a PDF from the frontend's existing payload contract."""
+    try:
+        paper_data = {
+            "id": "generated-paper",
+            "title": request.title,
+            "display_name": request.title,
+            "filename": request.filename,
+        }
+        html_str = build_html(paper_data, request.data)
+        pdf_bytes = await html_to_pdf(html_str)
+
+        return StreamingResponse(
+            BytesIO(pdf_bytes),
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": (
+                    f'attachment; filename="{request.filename}.pdf"'
+                )
+            },
+        )
+    except Exception as error:
+        return JSONResponse(status_code=500, content={"error": str(error)})
 
 @app.get("/paper/{paper_id}/pdf")
 async def generate_pdf(paper_id: str):
