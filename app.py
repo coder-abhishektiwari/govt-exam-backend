@@ -95,18 +95,31 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             background: white;
         }}
         
-        /* ========== IMPROVED COVER PAGE (No Emojis) ========== */
+        /* ========== COVER PAGE - FULL PAGE ========== */
+        .cover-page {{
+            page-break-after: always;
+            break-after: page;
+            margin: -16mm -14mm 0 -14mm;
+            padding: 0;
+            height: 297mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }}
+        
         .cover {{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
             color: white;
-            padding: 60px 40px;
-            border-radius: 24px;
-            margin-bottom: 40px;
-            page-break-after: avoid;
-            break-inside: avoid;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            overflow: hidden;
+            padding: 60px 50px;
+            margin: 0;
+            box-shadow: none;
+            min-height: 297mm;
         }}
         
         /* Decorative background elements */
@@ -152,7 +165,7 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
         }}
         
         .logo-icon {{
-            font-size: 56px;
+            font-size: 72px;
             color: #38bdf8;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }}
@@ -161,33 +174,35 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             display: inline-block;
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(10px);
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 40px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 1px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             border: 1px solid rgba(255,255,255,0.3);
+            text-align: center;
         }}
         
         .gov-badge i {{
-            margin-right: 6px;
+            margin: 0 6px;
         }}
         
         .cover h1 {{
-            font-size: 32px;
+            font-size: 38px;
             font-weight: 800;
-            margin: 0 0 12px 0;
+            margin: 0 0 16px 0;
             text-align: center;
             letter-spacing: -0.5px;
             color: white;
+            line-height: 1.3;
         }}
         
         .cover-subtitle {{
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             color: #cbd5e1;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-weight: 500;
             letter-spacing: 0.5px;
         }}
@@ -195,9 +210,9 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
         .stats-grid {{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin: 35px 0;
-            padding: 20px 0;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 25px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }}
@@ -207,7 +222,7 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
         }}
         
         .stat-number {{
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             color: #38bdf8;
             display: block;
@@ -218,14 +233,14 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 6px;
+            margin-top: 8px;
         }}
         
         .generated-info {{
             background: rgba(255,255,255,0.08);
             border-radius: 16px;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 24px;
+            margin: 30px 0 20px 0;
             border: 1px solid rgba(255,255,255,0.1);
         }}
         
@@ -233,7 +248,7 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-size: 11px;
             flex-wrap: wrap;
             gap: 10px;
@@ -251,7 +266,7 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
         
         .info-label i {{
             width: 20px;
-            margin-right: 6px;
+            margin-right: 8px;
         }}
         
         .info-value {{
@@ -266,19 +281,19 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
         
         .verification-seal {{
             text-align: center;
-            margin-top: 25px;
+            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px dashed rgba(255,255,255,0.2);
         }}
         
         .seal-text {{
-            font-size: 9px;
+            font-size: 10px;
             color: #64748b;
             letter-spacing: 1px;
         }}
         
         .seal-text i {{
-            margin: 0 4px;
+            margin: 0 6px;
         }}
         
         /* Rest of your existing styles */
@@ -346,76 +361,81 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             page-break-before: always;
             break-before: page;
         }}
-        
-        i {{
-            font-style: normal;
-        }}
     </style>
     </head>
     <body>
-        <!-- COVER PAGE WITH FONT AWESOME ICONS -->
-        <div class="cover">
-            <div class="cover-strip"></div>
-            
-            <div class="logo-section">
-                <div class="logo-icon">
-                    <i class="fas fa-graduation-cap"></i>
+        <!-- COVER PAGE - FULL PAGE -->
+        <div class="cover-page">
+            <div class="cover">
+                <div class="cover-strip"></div>
+                
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="gov-badge">
-                <i class="fas fa-flag-checkered"></i> NATIONAL DIGITAL EXAM HUB <i class="fas fa-certificate"></i>
-            </div>
-            
-            <h1>{safe(title)}</h1>
-            <div class="cover-subtitle">Comprehensive Question Bank for Exam Preparation</div>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">{total_questions}</span>
-                    <span class="stat-label">TOTAL QUESTIONS</span>
+                
+                <div class="gov-badge">
+                    <i class="fas fa-flag-checkered"></i> NATIONAL DIGITAL EXAM HUB <i class="fas fa-certificate"></i>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">{total_topics}</span>
-                    <span class="stat-label">TOPICS COVERED</span>
+                
+                <h1>{safe(title)}</h1>
+                <div class="cover-subtitle">Comprehensive Question Bank for Exam Preparation</div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">{total_questions}</span>
+                        <span class="stat-label">TOTAL QUESTIONS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">{total_topics}</span>
+                        <span class="stat-label">TOPICS COVERED</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">{total_sections}</span>
+                        <span class="stat-label">SECTIONS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">VERIFIED</span>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">{total_sections}</span>
-                    <span class="stat-label">SECTIONS</span>
+                
+                <div class="generated-info">
+                    <div class="info-row">
+                        <span class="info-label"><i class="far fa-calendar-alt"></i> GENERATED ON</span>
+                        <span class="info-value">{__import__('datetime').datetime.now().strftime('%d %B %Y at %I:%M %p')}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label"><i class="fas fa-link"></i> SOURCE</span>
+                        <span class="info-value">
+                            <strong>
+                                <a href="https://getreadyforexam.my-board.org/" 
+                                   style="color: #38bdf8; text-decoration: none; border-bottom: 1px solid #38bdf8;">
+                                    https://getreadyforexam.my-board.org
+                                </a>
+                            </strong>
+                        </span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label"><i class="fas fa-envelope"></i> SUPPORT</span>
+                        <span class="info-value">support@examhub.com</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label"><i class="fas fa-phone-alt"></i> HELPLINE</span>
+                        <span class="info-value">1800-XXX-XXXX (Toll Free)</span>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">VERIFIED</span>
+                
+                <div class="verification-seal">
+                    <span class="seal-text">
+                        <i class="fas fa-shield-alt"></i> DIGITALLY VERIFIED DOCUMENT <i class="fas fa-shield-alt"></i>
+                    </span>
                 </div>
-            </div>
-            
-            <div class="generated-info">
-                <div class="info-row">
-                    <span class="info-label"><i class="far fa-calendar-alt"></i> GENERATED ON</span>
-                    <span class="info-value">{__import__('datetime').datetime.now().strftime('%d %B %Y at %I:%M %p')}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label"><i class="fas fa-link"></i> SOURCE</span>
-                    <span class="info-value"><strong>national-digital-exam-prep-hub.onrender.com</strong></span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label"><i class="fas fa-envelope"></i> SUPPORT</span>
-                    <span class="info-value">support@examhub.com</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-label"><i class="fas fa-phone-alt"></i> HELPLINE</span>
-                    <span class="info-value">1800-XXX-XXXX (Toll Free)</span>
-                </div>
-            </div>
-            
-            <div class="verification-seal">
-                <span class="seal-text">
-                    <i class="fas fa-shield-alt"></i> DIGITALLY VERIFIED DOCUMENT <i class="fas fa-shield-alt"></i>
-                </span>
             </div>
         </div>
         
-        <!-- QUESTION BANK CONTENT -->
+        <!-- QUESTION BANK CONTENT STARTS ON NEXT PAGE -->
         {''.join(sections_html)}
     </body>
     </html>
