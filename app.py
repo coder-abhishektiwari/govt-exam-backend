@@ -1,20 +1,20 @@
-import hashlib
-import json
-import re
-import asyncio
-from io import BytesIO
-from html import escape
-from pathlib import Path
-from typing import List
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
 from pydantic import BaseModel
+from typing import List
+from io import BytesIO
+from html import escape
+import re
+import asyncio
+import hashlib
+import json
+
+# WeasyPrint with specific font config
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
 
-app = FastAPI(title="PDF Converter for Render")
+app = FastAPI(title="PDF Converter")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -23,9 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# =========================
 # Models
-# =========================
 class QA(BaseModel):
     q: str
     a: str
@@ -39,9 +37,7 @@ class Section(BaseModel):
     name: str
     topics: List[Topic]
 
-# =========================
 # Helpers
-# =========================
 def safe(value) -> str:
     return escape(str(value or ""))
 
@@ -49,27 +45,27 @@ def clean_filename(name: str) -> str:
     return re.sub(r"[^\w\-\.]+", "_", name.strip(), flags=re.UNICODE) or "QuestionBank"
 
 def build_html(data: List[Section], title: str = "Question Bank") -> str:
-    sections = []
-    for s_idx, sec in enumerate(data):
-        topics_html = []
-        for topic in sec.topics:
-            qas_html = []
-            for q_idx, qa in enumerate(topic.qas, 1):
-                qas_html.append(f"""
+    sections_html = []
+    for s_idx, section in enumerate(data):
+        topic_blocks = []
+        for topic in section.topics:
+            qa_blocks = []
+            for idx, qa in enumerate(topic.qas, start=1):
+                qa_blocks.append(f"""
                 <div class="qa-card">
-                    <div class="q"><span class="label">Q{q_idx}.</span> {safe(qa.q)}</div>
+                    <div class="q"><span class="label">Q{idx}.</span> {safe(qa.q)}</div>
                     <div class="a"><span class="label">Answer:</span> {safe(qa.a)}</div>
                     <div class="h"><span class="label">Hack:</span> {safe(qa.hack)}</div>
                 </div>""")
-            topics_html.append(f"""
+            topic_blocks.append(f"""
             <section class="topic">
                 <h2>{safe(topic.name)}</h2>
-                {''.join(qas_html)}
+                {''.join(qa_blocks)}
             </section>""")
-        sections.append(f"""
+        sections_html.append(f"""
         <section class="section {'page-break' if s_idx > 0 else ''}">
-            <h1>{safe(sec.name)}</h1>
-            {''.join(topics_html)}
+            <h1>{safe(section.name)}</h1>
+            {''.join(topic_blocks)}
         </section>""")
     
     return f"""
@@ -96,13 +92,13 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
     </style>
     </head>
     <body>
-        <div class="cover"><h1>{safe(title)}</h1><p>PDF with caching</p></div>
-        {''.join(sections)}
+        <div class="cover"><h1>{safe(title)}</h1><p>PDF Generator</p></div>
+        {''.join(sections_html)}
     </body>
     </html>
     """
 
-# Global font config (reused)
+# Global font config
 font_config = FontConfiguration()
 
 async def html_to_pdf(html_str: str) -> bytes:
@@ -111,36 +107,15 @@ async def html_to_pdf(html_str: str) -> bytes:
         return html.write_pdf(font_config=font_config)
     return await asyncio.to_thread(_render)
 
-# =========================
-# Caching
-# =========================
-from functools import lru_cache
+# Simple cache
+pdf_cache = {}
+cache_order = []
+MAX_CACHE = 32
 
-def content_hash(data: List[Section]) -> str:
+def get_cache_key(data: List[Section]) -> str:
     json_str = json.dumps([s.dict() for s in data], sort_keys=True, ensure_ascii=False)
     return hashlib.md5(json_str.encode()).hexdigest()
 
-# Simple in-memory cache
-pdf_cache = {}
-cache_order = []
-MAX_CACHE_SIZE = 32
-
-def get_cached(key):
-    return pdf_cache.get(key)
-
-def set_cached(key, value):
-    global pdf_cache, cache_order
-    if key in pdf_cache:
-        cache_order.remove(key)
-    elif len(pdf_cache) >= MAX_CACHE_SIZE:
-        oldest = cache_order.pop(0)
-        del pdf_cache[oldest]
-    pdf_cache[key] = value
-    cache_order.append(key)
-
-# =========================
-# API Routes
-# =========================
 @app.get("/")
 def home():
     return {"status": "running", "engine": "WeasyPrint", "caching": True}
@@ -148,33 +123,28 @@ def home():
 @app.post("/generate-pdf")
 async def generate_pdf(data: List[Section]):
     try:
-        # Check cache
-        cache_key = content_hash(data)
-        cached_pdf = get_cached(cache_key)
-        if cached_pdf:
+        cache_key = get_cache_key(data)
+        if cache_key in pdf_cache:
             return StreamingResponse(
-                BytesIO(cached_pdf),
+                BytesIO(pdf_cache[cache_key]),
                 media_type="application/pdf",
-                headers={
-                    "Content-Disposition": f'attachment; filename="{clean_filename("QuestionBank")}.pdf"',
-                    "X-Cache": "HIT"
-                }
+                headers={"Content-Disposition": f'attachment; filename="{clean_filename("QuestionBank")}.pdf"'}
             )
         
-        # Generate PDF
         html_str = build_html(data)
         pdf_bytes = await html_to_pdf(html_str)
         
-        # Store in cache
-        set_cached(cache_key, pdf_bytes)
+        # Cache management
+        if len(pdf_cache) >= MAX_CACHE:
+            oldest = cache_order.pop(0)
+            del pdf_cache[oldest]
+        pdf_cache[cache_key] = pdf_bytes
+        cache_order.append(cache_key)
         
         return StreamingResponse(
             BytesIO(pdf_bytes),
             media_type="application/pdf",
-            headers={
-                "Content-Disposition": f'attachment; filename="{clean_filename("QuestionBank")}.pdf"',
-                "X-Cache": "MISS"
-            }
+            headers={"Content-Disposition": f'attachment; filename="{clean_filename("QuestionBank")}.pdf"'}
         )
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
