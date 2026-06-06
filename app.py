@@ -42,6 +42,11 @@ def clean_filename(name: str) -> str:
     return re.sub(r"[^\w\-\.]+", "_", name.strip(), flags=re.UNICODE) or "QuestionBank"
 
 def build_html(data: List[Section], title: str = "Question Bank") -> str:
+    # Calculate stats
+    total_questions = sum(len(topic.qas) for section in data for topic in section.topics)
+    total_topics = len([topic for section in data for topic in section.topics])
+    total_sections = len(data)
+    
     sections_html = []
     for s_idx, section in enumerate(data):
         topic_blocks = []
@@ -69,7 +74,8 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
     <!doctype html>
     <html>
     <head><meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @page {{ 
             size: A4; 
@@ -85,71 +91,197 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
         
         body {{ 
             margin: 0; 
-            font-family: 'Noto Sans Devanagari', sans-serif; 
-            color: #101828; 
-            font-size: 12px; 
-            line-height: 1.45;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif; 
             background: white;
         }}
         
-        /* Cover Page */
+        /* ========== IMPROVED COVER PAGE (No Emojis) ========== */
         .cover {{
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #e5e7eb;
+            position: relative;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin-bottom: 40px;
+            page-break-after: avoid;
+            break-inside: avoid;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
         }}
         
-        .logo {{
-            font-size: 48px;
+        /* Decorative background elements */
+        .cover::before {{
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(2,132,199,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }}
+        
+        .cover::after {{
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(22,163,74,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }}
+        
+        /* Indian Flag Tricolor Strip */
+        .cover-strip {{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
+        }}
+        
+        .logo-section {{
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }}
+        
+        .logo-icon {{
+            font-size: 56px;
+            color: #38bdf8;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }}
+        
+        .gov-badge {{
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
             margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }}
+        
+        .gov-badge i {{
+            margin-right: 6px;
         }}
         
         .cover h1 {{
-            font-size: 28px;
-            color: #1a3c5e;
-            margin: 10px 0;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            text-align: center;
+            letter-spacing: -0.5px;
+            color: white;
         }}
         
-        .cover p {{
-            color: #6b7280;
-            margin: 5px 0;
+        .cover-subtitle {{
+            text-align: center;
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }}
+        
+        .stats-grid {{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 35px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }}
+        
+        .stat-item {{
+            text-align: center;
+        }}
+        
+        .stat-number {{
+            font-size: 28px;
+            font-weight: 800;
+            color: #38bdf8;
+            display: block;
+        }}
+        
+        .stat-label {{
+            font-size: 10px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
         }}
         
         .generated-info {{
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 20px;
             margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px dashed #d1d5db;
-            font-size: 10px;
-            color: #9ca3af;
+            border: 1px solid rgba(255,255,255,0.1);
         }}
         
-        /* Footer */
-        .footer {{
-            position: running(footer);
-            text-align: center;
-            font-size: 9px;
-            color: #6b7280;
-            padding: 10px 0;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 30px;
-        }}
-        
-        .footer-content {{
+        .info-row {{
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 11px;
             flex-wrap: wrap;
             gap: 10px;
         }}
         
-        .footer-links a {{
-            color: #3b82f6;
-            text-decoration: none;
-            margin: 0 8px;
+        .info-row:last-child {{
+            margin-bottom: 0;
         }}
         
-        /* Question Bank Styles */
+        .info-label {{
+            color: #94a3b8;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }}
+        
+        .info-label i {{
+            width: 20px;
+            margin-right: 6px;
+        }}
+        
+        .info-value {{
+            color: #e2e8f0;
+            font-weight: 600;
+        }}
+        
+        .info-value strong {{
+            color: #38bdf8;
+            font-weight: 700;
+        }}
+        
+        .verification-seal {{
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+        }}
+        
+        .seal-text {{
+            font-size: 9px;
+            color: #64748b;
+            letter-spacing: 1px;
+        }}
+        
+        .seal-text i {{
+            margin: 0 4px;
+        }}
+        
+        /* Rest of your existing styles */
         .section {{
             margin-bottom: 18px;
         }}
@@ -215,50 +347,81 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             break-before: page;
         }}
         
-        @page {{
-            @bottom-center {{
-                content: "Page " counter(page) " / " counter(pages);
-            }}
+        i {{
+            font-style: normal;
         }}
     </style>
     </head>
     <body>
-        <!-- COVER PAGE -->
+        <!-- COVER PAGE WITH FONT AWESOME ICONS -->
         <div class="cover">
-            <div class="logo">📚 📖 🎯</div>
+            <div class="cover-strip"></div>
+            
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+            
+            <div class="gov-badge">
+                <i class="fas fa-flag-checkered"></i> NATIONAL DIGITAL EXAM HUB <i class="fas fa-certificate"></i>
+            </div>
+            
             <h1>{safe(title)}</h1>
-            <p>Comprehensive Question Bank for Exam Preparation</p>
+            <div class="cover-subtitle">Comprehensive Question Bank for Exam Preparation</div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">{total_questions}</span>
+                    <span class="stat-label">TOTAL QUESTIONS</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{total_topics}</span>
+                    <span class="stat-label">TOPICS COVERED</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{total_sections}</span>
+                    <span class="stat-label">SECTIONS</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">VERIFIED</span>
+                </div>
+            </div>
+            
             <div class="generated-info">
-                <p>📅 Generated on: {__import__('datetime').datetime.now().strftime('%d %B %Y at %I:%M %p')}</p>
-                <p>🔗 Source: <strong>national-digital-exam-prep-hub.onrender.com</strong></p>
-                <p>📧 Support: support@examhub.com | 📞 Helpline: 1800-XXX-XXXX</p>
+                <div class="info-row">
+                    <span class="info-label"><i class="far fa-calendar-alt"></i> GENERATED ON</span>
+                    <span class="info-value">{__import__('datetime').datetime.now().strftime('%d %B %Y at %I:%M %p')}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-link"></i> SOURCE</span>
+                    <span class="info-value"><strong>national-digital-exam-prep-hub.onrender.com</strong></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-envelope"></i> SUPPORT</span>
+                    <span class="info-value">support@examhub.com</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-phone-alt"></i> HELPLINE</span>
+                    <span class="info-value">1800-XXX-XXXX (Toll Free)</span>
+                </div>
+            </div>
+            
+            <div class="verification-seal">
+                <span class="seal-text">
+                    <i class="fas fa-shield-alt"></i> DIGITALLY VERIFIED DOCUMENT <i class="fas fa-shield-alt"></i>
+                </span>
             </div>
         </div>
         
         <!-- QUESTION BANK CONTENT -->
         {''.join(sections_html)}
-        
-        <!-- FOOTER ON EVERY PAGE -->
-        <div class="footer">
-            <div class="footer-content">
-                <span>© 2026 National Digital Exam Preparation Hub</span>
-                <div class="footer-links">
-                    <a href="#">Terms</a> | 
-                    <a href="#">Privacy</a> | 
-                    <a href="#">Contact</a>
-                </div>
-                <span>Version 2.0 | All Rights Reserved</span>
-            </div>
-            <div style="margin-top: 5px; font-size: 8px;">
-                This document is digitally generated and verified. For any discrepancies, contact support@examhub.com
-            </div>
-        </div>
     </body>
     </html>
     """
 
 
-    
 font_config = FontConfiguration()
 
 async def html_to_pdf(html_str: str) -> bytes:
