@@ -242,7 +242,8 @@ async def health_check():
 @app.get("/papers")
 async def list_papers():
     """List all papers (fast - metadata only)"""
-    return {"papers": get_all_papers_metadata()}
+    metadata = get_all_papers_metadata()
+    return {"papers": metadata}
 
 @app.get("/paper/{paper_id}")
 async def get_paper(paper_id: str):
