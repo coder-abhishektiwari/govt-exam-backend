@@ -1,0 +1,17 @@
+{
+  "papers": [
+    {
+      "id": "up_police_2025",
+      "title": "UP Police Constable Crash Course 2025",
+      "display_name": "UP Police Constable 2025",
+      "subject": "Police Recruitment",
+      "exam_board": "UPPRPB",
+      "total_questions": 164,
+      "filename": "UP-Police-Crash-Course",
+      "file": "up_police_2025.json",
+      "created_date": "2025-06-01",
+      "version": "2.0",
+      "description": "Accelerated revision modules covering General Knowledge, Hindi, Maths, Mental Ability, Reasoning and Aptitude."
+    }
+  ]
+}

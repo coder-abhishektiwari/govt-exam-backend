@@ -1,19 +1,22 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
-from pydantic import BaseModel
-from typing import List
+from typing import List, Optional, Dict
 from io import BytesIO
 from html import escape
-import re
 import asyncio
 import hashlib
 import json
+from datetime import datetime
 
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
+from config import CACHE_DIR, MAX_CACHE_FILES
+from models import QuestionPaper, Section
+from paper_repository import paper_repository
 
-app = FastAPI(title="PDF Converter")
+app = FastAPI(title="Question Paper PDF Generator")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,33 +25,62 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class QA(BaseModel):
-    q: str
-    a: str
-    hack: str
+def load_paper(paper_id: str) -> Optional[Dict]:
+    return paper_repository.load(paper_id)
 
-class Topic(BaseModel):
-    name: str
-    qas: List[QA]
+def save_paper(paper_id: str, paper_data: Dict):
+    paper_repository.save(paper_id, paper_data)
 
-class Section(BaseModel):
-    name: str
-    topics: List[Topic]
+def delete_paper(paper_id: str):
+    return paper_repository.delete(paper_id)
 
+def get_all_papers_metadata():
+    return paper_repository.list_metadata()
+
+def get_cache_key(paper_id: str, sections: List[Section]) -> str:
+    """Generate cache key"""
+    json_str = json.dumps({
+        "paper_id": paper_id,
+        "data": [s.dict() for s in sections]
+    }, sort_keys=True, ensure_ascii=False)
+    return hashlib.md5(json_str.encode()).hexdigest()
+
+def get_cached_pdf(cache_key: str) -> Optional[bytes]:
+    """Check cache"""
+    cache_file = CACHE_DIR / f"{cache_key}.pdf"
+    if cache_file.exists():
+        file_age = datetime.now().timestamp() - cache_file.stat().st_mtime
+        if file_age < 7 * 24 * 3600:
+            with open(cache_file, 'rb') as f:
+                return f.read()
+        else:
+            cache_file.unlink()
+    return None
+
+def save_to_cache(cache_key: str, pdf_bytes: bytes):
+    """Save to cache"""
+    cache_file = CACHE_DIR / f"{cache_key}.pdf"
+    with open(cache_file, 'wb') as f:
+        f.write(pdf_bytes)
+    
+    # Cleanup old files
+    cache_files = sorted(CACHE_DIR.glob("*.pdf"), key=lambda x: x.stat().st_mtime)
+    while len(cache_files) > MAX_CACHE_FILES:
+        oldest = cache_files.pop(0)
+        oldest.unlink()
+
+# ============ HTML GENERATION ============
 def safe(value) -> str:
     return escape(str(value or ""))
 
-def clean_filename(name: str) -> str:
-    return re.sub(r"[^\w\-\.]+", "_", name.strip(), flags=re.UNICODE) or "QuestionBank"
-
-def build_html(data: List[Section], title: str = "Question Bank") -> str:
-    # Calculate stats
-    total_questions = sum(len(topic.qas) for section in data for topic in section.topics)
-    total_topics = len([topic for section in data for topic in section.topics])
-    total_sections = len(data)
+def build_html(paper: Dict, sections: List[Section]) -> str:
+    """Generate HTML"""
+    total_questions = sum(len(topic.qas) for section in sections for topic in section.topics)
+    total_topics = len([topic for section in sections for topic in section.topics])
+    total_sections = len(sections)
     
     sections_html = []
-    for s_idx, section in enumerate(data):
+    for s_idx, section in enumerate(sections):
         topic_blocks = []
         for topic in section.topics:
             qa_blocks = []
@@ -70,6 +102,8 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
             {''.join(topic_blocks)}
         </section>""")
     
+    metadata = paper.get("metadata", {})
+    
     return f"""
     <!doctype html>
     <html>
@@ -77,370 +111,83 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @page {{ 
-            size: A4; 
-            margin: 16mm 14mm 20mm 14mm;
-            @bottom-center {{ 
-                content: "Page " counter(page) " / " counter(pages); 
-                font-size: 9px; 
-                color: #667085; 
-            }}
-        }}
-        
+        @page {{ size: A4; margin: 16mm 14mm 20mm 14mm;
+                @bottom-center {{ content: "Page " counter(page) " / " counter(pages); font-size: 9px; color: #667085; }} }}
         * {{ box-sizing: border-box; }}
+        body {{ margin: 0; font-family: 'Noto Sans Devanagari', sans-serif; background: white; }}
         
-        body {{ 
-            margin: 0; 
-            font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif; 
-            background: white;
-        }}
+        .cover-page {{ page-break-after: always; break-after: page; margin: -16mm -14mm 0 -14mm; height: 297mm; display: flex; align-items: center; justify-content: center; }}
+        .cover {{ width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; position: relative; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); color: white; padding: 60px 50px; }}
+        .cover-strip {{ position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%); }}
+        .logo-section {{ text-align: center; margin-bottom: 30px; }}
+        .logo-icon {{ font-size: 72px; color: #38bdf8; }}
+        .gov-badge {{ display: inline-block; background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 40px; font-size: 12px; font-weight: 600; margin-bottom: 30px; }}
+        .cover h1 {{ font-size: 32px; font-weight: 800; margin: 0 0 16px 0; text-align: center; color: white; }}
+        .cover-subtitle {{ text-align: center; font-size: 14px; color: #cbd5e1; margin-bottom: 40px; }}
         
-        /* ========== COVER PAGE - FULL PAGE ========== */
-        .cover-page {{
-            page-break-after: always;
-            break-after: page;
-            margin: -16mm -14mm 0 -14mm;
-            padding: 0;
-            height: 297mm;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }}
+        .exam-details {{ background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin: 20px 0; }}
+        .exam-detail-row {{ display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 12px; }}
         
-        .cover {{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
-            color: white;
-            padding: 60px 50px;
-            margin: 0;
-            box-shadow: none;
-            min-height: 297mm;
-        }}
+        .stats-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 30px 0; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }}
+        .stat-item {{ text-align: center; }}
+        .stat-number {{ font-size: 28px; font-weight: 800; color: #38bdf8; display: block; }}
+        .stat-label {{ font-size: 10px; color: #94a3b8; text-transform: uppercase; margin-top: 8px; }}
         
-        /* Decorative background elements */
-        .cover::before {{
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(2,132,199,0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }}
+        .generated-info {{ background: rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; margin-top: 30px; }}
+        .info-row {{ display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 11px; }}
+        .verification-seal {{ text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.2); }}
         
-        .cover::after {{
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(22,163,74,0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }}
-        
-        /* Indian Flag Tricolor Strip */
-        .cover-strip {{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
-        }}
-        
-        .logo-section {{
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }}
-        
-        .logo-icon {{
-            font-size: 72px;
-            color: #38bdf8;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }}
-        
-        .gov-badge {{
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
-            text-align: center;
-        }}
-        
-        .gov-badge i {{
-            margin: 0 6px;
-        }}
-        
-        .cover h1 {{
-            font-size: 38px;
-            font-weight: 800;
-            margin: 0 0 16px 0;
-            text-align: center;
-            letter-spacing: -0.5px;
-            color: white;
-            line-height: 1.3;
-        }}
-        
-        .cover-subtitle {{
-            text-align: center;
-            font-size: 14px;
-            color: #cbd5e1;
-            margin-bottom: 40px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }}
-        
-        .stats-grid {{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin: 40px 0;
-            padding: 25px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }}
-        
-        .stat-item {{
-            text-align: center;
-        }}
-        
-        .stat-number {{
-            font-size: 32px;
-            font-weight: 800;
-            color: #38bdf8;
-            display: block;
-        }}
-        
-        .stat-label {{
-            font-size: 10px;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 8px;
-        }}
-        
-        .generated-info {{
-            background: rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 24px;
-            margin: 30px 0 20px 0;
-            border: 1px solid rgba(255,255,255,0.1);
-        }}
-        
-        .info-row {{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 14px;
-            font-size: 11px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }}
-        
-        .info-row:last-child {{
-            margin-bottom: 0;
-        }}
-        
-        .info-label {{
-            color: #94a3b8;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }}
-        
-        .info-label i {{
-            width: 20px;
-            margin-right: 8px;
-        }}
-        
-        .info-value {{
-            color: #e2e8f0;
-            font-weight: 600;
-        }}
-        
-        .info-value strong {{
-            color: #38bdf8;
-            font-weight: 700;
-        }}
-        
-        .verification-seal {{
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px dashed rgba(255,255,255,0.2);
-        }}
-        
-        .seal-text {{
-            font-size: 10px;
-            color: #64748b;
-            letter-spacing: 1px;
-        }}
-        
-        .seal-text i {{
-            margin: 0 6px;
-        }}
-        
-        /* Rest of your existing styles */
-        .section {{
-            margin-bottom: 18px;
-        }}
-        
-        .section h1 {{
-            font-size: 20px;
-            margin: 0 0 12px 0;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #1a3c5e;
-            color: #1a3c5e;
-        }}
-        
-        .topic {{
-            margin: 0 0 14px 0;
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }}
-        
-        .topic h2 {{
-            font-size: 16px;
-            margin: 0 0 8px 0;
-            padding: 8px 12px;
-            background: #eff6ff;
-            border-left: 4px solid #1a3c5e;
-            border-radius: 8px;
-            color: #1e3a8a;
-        }}
-        
-        .qa-card {{
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 10px 14px;
-            margin: 0 0 8px 0;
-            background: #ffffff;
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }}
-        
-        .label {{
-            font-weight: 700;
-            color: #374151;
-        }}
-        
-        .q {{
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 6px;
-        }}
-        
-        .a {{
-            color: #047857;
-            margin: 4px 0;
-        }}
-        
-        .h {{
-            color: #b45309;
-            margin: 4px 0;
-            font-size: 11px;
-        }}
-        
-        .page-break {{
-            page-break-before: always;
-            break-before: page;
-        }}
+        .section {{ margin-bottom: 18px; }}
+        .section h1 {{ font-size: 20px; margin: 0 0 12px 0; padding-bottom: 6px; border-bottom: 2px solid #1a3c5e; color: #1a3c5e; }}
+        .topic {{ margin: 0 0 14px 0; page-break-inside: avoid; }}
+        .topic h2 {{ font-size: 16px; margin: 0 0 8px 0; padding: 8px 12px; background: #eff6ff; border-left: 4px solid #1a3c5e; border-radius: 8px; color: #1e3a8a; }}
+        .qa-card {{ border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 14px; margin: 0 0 8px 0; background: #ffffff; page-break-inside: avoid; }}
+        .label {{ font-weight: 700; color: #374151; }}
+        .q {{ font-weight: 600; color: #1f2937; margin-bottom: 6px; }}
+        .a {{ color: #047857; margin: 4px 0; }}
+        .h {{ color: #b45309; margin: 4px 0; font-size: 11px; }}
+        .page-break {{ page-break-before: always; }}
     </style>
     </head>
     <body>
-        <!-- COVER PAGE - FULL PAGE -->
         <div class="cover-page">
             <div class="cover">
                 <div class="cover-strip"></div>
-                
                 <div class="logo-section">
-                    <div class="logo-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
+                    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
                 </div>
-                
                 <div class="gov-badge">
                     <i class="fas fa-flag-checkered"></i> NATIONAL DIGITAL EXAM HUB <i class="fas fa-certificate"></i>
                 </div>
+                <h1>{safe(paper.get('title', 'Question Bank'))}</h1>
+                <div class="cover-subtitle">{safe(paper.get('display_name', 'Exam Preparation Material'))}</div>
                 
-                <h1>{safe(title)}</h1>
-                <div class="cover-subtitle">Comprehensive Question Bank for Exam Preparation</div>
+                <div class="exam-details">
+                    <div class="exam-detail-row"><span><i class="fas fa-building"></i> Exam Board:</span><span>{safe(paper.get('exam_board', 'N/A'))}</span></div>
+                    <div class="exam-detail-row"><span><i class="fas fa-book"></i> Subject:</span><span>{safe(paper.get('subject', 'N/A'))}</span></div>
+                    <div class="exam-detail-row"><span><i class="fas fa-chart-line"></i> Difficulty:</span><span>{safe(metadata.get('difficulty', 'Medium'))}</span></div>
+                </div>
                 
                 <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">{total_questions}</span>
-                        <span class="stat-label">TOTAL QUESTIONS</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">{total_topics}</span>
-                        <span class="stat-label">TOPICS COVERED</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">{total_sections}</span>
-                        <span class="stat-label">SECTIONS</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">VERIFIED</span>
-                    </div>
+                    <div class="stat-item"><span class="stat-number">{total_questions}</span><span class="stat-label">QUESTIONS</span></div>
+                    <div class="stat-item"><span class="stat-number">{total_topics}</span><span class="stat-label">TOPICS</span></div>
+                    <div class="stat-item"><span class="stat-number">{total_sections}</span><span class="stat-label">SECTIONS</span></div>
+                    <div class="stat-item"><span class="stat-number">{paper.get('version', '1.0')}</span><span class="stat-label">VERSION</span></div>
                 </div>
                 
                 <div class="generated-info">
-                    <div class="info-row">
-                        <span class="info-label"><i class="far fa-calendar-alt"></i> GENERATED ON</span>
-                        <span class="info-value">{__import__('datetime').datetime.now().strftime('%d %B %Y at %I:%M %p')}</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label"><i class="fas fa-link"></i> SOURCE</span>
-                        <span class="info-value">
-                            <strong>
-                                <a href="https://getreadyforexam.my-board.org/" 
-                                   style="color: #38bdf8; text-decoration: none; border-bottom: 1px solid #38bdf8;">
-                                    https://getreadyforexam.my-board.org
-                                </a>
-                            </strong>
-                        </span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label"><i class="fas fa-envelope"></i> SUPPORT</span>
-                        <span class="info-value">support@examhub.com</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label"><i class="fas fa-phone-alt"></i> HELPLINE</span>
-                        <span class="info-value">1800-XXX-XXXX (Toll Free)</span>
-                    </div>
+                    <div class="info-row"><span><i class="far fa-calendar-alt"></i> Generated:</span><span>{datetime.now().strftime('%d %B %Y at %I:%M %p')}</span></div>
+                    <div class="info-row"><span><i class="fas fa-link"></i> Source:</span><span><strong>getreadyforexam.my-board.org</strong></span></div>
+                    <div class="info-row"><span><i class="fas fa-tag"></i> Paper ID:</span><span>{safe(paper.get('id', 'N/A'))}</span></div>
                 </div>
                 
-                <div class="verification-seal">
-                    <span class="seal-text">
-                        <i class="fas fa-shield-alt"></i> DIGITALLY VERIFIED DOCUMENT <i class="fas fa-shield-alt"></i>
-                    </span>
-                </div>
+                <div class="verification-seal"><i class="fas fa-shield-alt"></i> DIGITALLY VERIFIED DOCUMENT <i class="fas fa-shield-alt"></i></div>
             </div>
         </div>
-        
-        <!-- QUESTION BANK CONTENT STARTS ON NEXT PAGE -->
         {''.join(sections_html)}
     </body>
     </html>
     """
-
 
 font_config = FontConfiguration()
 
@@ -450,42 +197,97 @@ async def html_to_pdf(html_str: str) -> bytes:
         return html.write_pdf(font_config=font_config)
     return await asyncio.to_thread(_render)
 
-pdf_cache = {}
-cache_order = []
-MAX_CACHE = 32
-
-def get_cache_key(data: List[Section]) -> str:
-    json_str = json.dumps([s.dict() for s in data], sort_keys=True, ensure_ascii=False)
-    return hashlib.md5(json_str.encode()).hexdigest()
+# ============ API ENDPOINTS ============
 
 @app.get("/")
-def home():
-    return {"status": "running", "engine": "WeasyPrint", "caching": True}
+async def home():
+    papers = get_all_papers_metadata()
+    return {
+        "status": "running",
+        "total_papers": len(papers),
+        "papers": papers,
+        "endpoints": {
+            "list": "GET /papers",
+            "get": "GET /paper/{paper_id}",
+            "pdf": "GET /paper/{paper_id}/pdf"
+        }
+    }
 
-@app.post("/generate-pdf")
-async def generate_pdf(data: List[Section]):
+@app.get("/papers")
+async def list_papers():
+    """List all papers (fast - metadata only)"""
+    return {"papers": get_all_papers_metadata()}
+
+@app.get("/paper/{paper_id}")
+async def get_paper(paper_id: str):
+    """Get complete paper data"""
+    paper_data = load_paper(paper_id)
+    if not paper_data:
+        raise HTTPException(status_code=404, detail=f"Paper '{paper_id}' not found")
+    return paper_data
+
+@app.get("/paper/{paper_id}/pdf")
+async def generate_pdf(paper_id: str):
+    """Generate PDF for paper"""
     try:
-        cache_key = get_cache_key(data)
-        if cache_key in pdf_cache:
+        # Load paper
+        paper_data = load_paper(paper_id)
+        if not paper_data:
+            raise HTTPException(status_code=404, detail=f"Paper '{paper_id}' not found")
+        
+        # Convert sections
+        sections = [Section(**section) for section in paper_data.get("sections", [])]
+        
+        # Check cache
+        cache_key = get_cache_key(paper_id, sections)
+        cached_pdf = get_cached_pdf(cache_key)
+        
+        if cached_pdf:
+            filename = paper_data.get("filename", paper_id)
             return StreamingResponse(
-                BytesIO(pdf_cache[cache_key]),
+                BytesIO(cached_pdf),
                 media_type="application/pdf",
-                headers={"Content-Disposition": f'attachment; filename="{clean_filename("QuestionBank")}.pdf"'}
+                headers={
+                    "Content-Disposition": f'attachment; filename="{filename}.pdf"',
+                    "X-Cache": "HIT"
+                }
             )
         
-        html_str = build_html(data)
+        # Generate new PDF
+        html_str = build_html(paper_data, sections)
         pdf_bytes = await html_to_pdf(html_str)
         
-        if len(pdf_cache) >= MAX_CACHE:
-            oldest = cache_order.pop(0)
-            del pdf_cache[oldest]
-        pdf_cache[cache_key] = pdf_bytes
-        cache_order.append(cache_key)
+        # Save to cache
+        save_to_cache(cache_key, pdf_bytes)
         
+        filename = paper_data.get("filename", paper_id)
         return StreamingResponse(
             BytesIO(pdf_bytes),
             media_type="application/pdf",
-            headers={"Content-Disposition": f'attachment; filename="{clean_filename("QuestionBank")}.pdf"'}
+            headers={
+                "Content-Disposition": f'attachment; filename="{filename}.pdf"',
+                "X-Cache": "MISS"
+            }
         )
+        
+    except HTTPException:
+        raise
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.post("/paper/create")
+async def create_paper(paper: QuestionPaper):
+    """Create new paper"""
+    try:
+        paper_data = paper.dict()
+        save_paper(paper.id, paper_data)
+        return {"status": "success", "message": f"Paper '{paper.id}' created"}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.delete("/paper/{paper_id}")
+async def delete_paper_endpoint(paper_id: str):
+    """Delete paper"""
+    if not delete_paper(paper_id):
+        raise HTTPException(status_code=404, detail=f"Paper '{paper_id}' not found")
+    return {"status": "success", "message": f"Paper '{paper_id}' deleted"}

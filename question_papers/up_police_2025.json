@@ -1,0 +1,1006 @@
+{
+  "id": "up_police_2025",
+  "title": "UP Police Constable Crash Course 2025",
+  "display_name": "UP Police Constable 2025",
+  "filename": "UP-Police-Crash-Course",
+  "subject": "Police Recruitment",
+  "exam_board": "UPPRPB",
+  "total_questions": 164,
+  "version": "2.0",
+  "metadata": {
+    "difficulty": "Medium",
+    "description": "Accelerated revision modules covering General Knowledge, Hindi, Maths, Mental Ability, Reasoning and Aptitude."
+  },
+  "sections": [
+    {
+      "name": "GK",
+      "topics": [
+        {
+          "name": "Ancient India",
+          "qas": [
+            {
+              "q": "Sindhu Ghati Sabhyata ka bandargah kaun sa tha? [UP Police Constable 2018]",
+              "a": "Lothal iska mashhoor bandargah tha.",
+              "hack": "Lothal = dockyard yaad rakho; port city pooche to seedha Lothal."
+            },
+            {
+              "q": "Rigveda mein kis nadi ka sabse adhik ullekh milta hai? [UP Police Constable 2018]",
+              "a": "Saraswati nadi ka sabse adhik ullekh milta hai.",
+              "hack": "Rigveda + Saraswati combo bahut common hai."
+            },
+            {
+              "q": "Buddha ko gyan prapti kahan hui thi? [UP Police Constable 2019]",
+              "a": "Bodh Gaya, Bihar mein gyan prapti hui thi.",
+              "hack": "Janm = Lumbini, Gyan = Bodh Gaya, Pratham updesh = Sarnath, Mahaparinirvan = Kushinagar."
+            },
+            {
+              "q": "Mahavir Swami Jain dharm ke kaun se Tirthankar the? [UP Police Constable 2019]",
+              "a": "Mahavir Swami 24ve Tirthankar the.",
+              "hack": "Jainism mein 24 Tirthankar, last = Mahavir."
+            },
+            {
+              "q": "Maurya vansh ka sansthapak kaun tha? [UP Police Constable 2018]",
+              "a": "Chandragupta Maurya Maurya vansh ka sansthapak tha.",
+              "hack": "Maurya start = Chandragupta, peak fame = Ashoka."
+            },
+            {
+              "q": "Kalinga yudh ke baad kis shasak ne Bauddh dharm apnaya? [UP Police Constable 2018]",
+              "a": "Samrat Ashoka ne Bauddh dharm apnaya.",
+              "hack": "Kalinga war ka direct result = Ashoka ka Dhamma."
+            },
+            {
+              "q": "Gupta kaal ko kis naam se jana jata hai? [UP Police Constable 2019]",
+              "a": "Gupta kaal ko Bharat ka Swarn Yug kaha jata hai.",
+              "hack": "Gupta = Golden Age; arts, science, literature sab top par."
+            }
+          ]
+        },
+        {
+          "name": "Medieval India",
+          "qas": [
+            {
+              "q": "Delhi Sultanat ka pratham shasak kaun mana jata hai? [UP Police Constable 2018]",
+              "a": "Qutubuddin Aibak ko pratham shasak mana jata hai.",
+              "hack": "Slave dynasty start = Qutubuddin Aibak."
+            },
+            {
+              "q": "Qutub Minar ka nirmaan kisne prarambh karwaya tha? [UP Police Constable 2018]",
+              "a": "Qutubuddin Aibak ne iska nirmaan shuru karwaya tha.",
+              "hack": "Qutub Minar naam se hi Qutubuddin yaad karo."
+            },
+            {
+              "q": "Mughal samrajya ka sansthapak kaun tha? [UP Police Constable 2019]",
+              "a": "Babur Mughal samrajya ka sansthapak tha.",
+              "hack": "1526 Panipat 1 = Babur entry."
+            },
+            {
+              "q": "Akbar ka rajsva mantri kaun tha? [UP Police Constable 2018]",
+              "a": "Raja Todar Mal Akbar ka rajsva mantri tha.",
+              "hack": "Todar Mal = revenue system specialist."
+            },
+            {
+              "q": "Taj Mahal kisne banwaya? [UP Police Constable 2019]",
+              "a": "Shahjahan ne Taj Mahal banwaya.",
+              "hack": "Taj Mahal = Shahjahan + Mumtaz memory."
+            },
+            {
+              "q": "Bhakti aandolan ke prasiddh sant Kabir kis bhasha mein dohe likhte the? [UP Police Constable 2018]",
+              "a": "Kabir ne sadhukkadi/mixed lokbhasha mein dohe likhe.",
+              "hack": "Kabir = saral lokbhasha, seedha message."
+            },
+            {
+              "q": "Panipat ki pahli ladai kis-kis ke beech hui thi? [UP Police Constable 2019]",
+              "a": "Babur aur Ibrahim Lodi ke beech hui thi.",
+              "hack": "1526 = Babur vs Lodi, exam evergreen fact."
+            }
+          ]
+        },
+        {
+          "name": "Modern India & Freedom Movement",
+          "qas": [
+            {
+              "q": "1857 ki kranti ka prarambh kahan se hua tha? [UP Police Constable 2018]",
+              "a": "Meerut se iska prarambh hua tha.",
+              "hack": "1857 = Meerut trigger, Delhi spread."
+            },
+            {
+              "q": "Indian National Congress ki sthapna kab hui thi? [UP Police Constable 2019]",
+              "a": "1885 mein INC ki sthapna hui thi.",
+              "hack": "INC = 1885, founder line mein A.O. Hume yaad rakho."
+            },
+            {
+              "q": "Jallianwala Bagh hatyakand kab hua tha? [UP Police Constable 2018]",
+              "a": "13 April 1919 ko hua tha.",
+              "hack": "Baisakhi ke din = 13 April 1919."
+            },
+            {
+              "q": "Asahyog Aandolan kis varsh shuru hua tha? [UP Police Constable 2019]",
+              "a": "1920 mein Asahyog Aandolan shuru hua tha.",
+              "hack": "1920 Non-Cooperation, 1930 Dandi, 1942 Quit India."
+            },
+            {
+              "q": "Dandi Yatra kis se sambandhit thi? [UP Police Constable 2018]",
+              "a": "Namak kanoon todne se sambandhit thi.",
+              "hack": "Dandi March = Salt Satyagraha."
+            },
+            {
+              "q": "Quit India Movement kis varsh shuru hua? [UP Police Constable 2019]",
+              "a": "1942 mein Quit India Movement shuru hua.",
+              "hack": "1942 = Bharat Chhodo Andolan."
+            },
+            {
+              "q": "Bhagat Singh, Rajguru aur Sukhdev ko kab phansi di gayi? [UP Police Constable 2018]",
+              "a": "23 March 1931 ko phansi di gayi.",
+              "hack": "23 March = Shaheed Diwas."
+            },
+            {
+              "q": "Bharat ka samvidhan lagu hone se pehle Bharat kab swatantra hua? [UP Police Constable 2019]",
+              "a": "15 August 1947 ko Bharat swatantra hua.",
+              "hack": "15 Aug = Azadi, 26 Jan = Ganatantra."
+            }
+          ]
+        },
+        {
+          "name": "India Geography",
+          "qas": [
+            {
+              "q": "Bharat ki sabse lambi nadi kaun si hai? [UP Police Constable 2018]",
+              "a": "Ganga Bharat ki sabse lambi nadi mani jati hai.",
+              "hack": "India longest river = Ganga; peninsula longest = Godavari."
+            },
+            {
+              "q": "Bharat ka sabse uncha shikhar kaun sa hai? [UP Police Constable 2019]",
+              "a": "Kanchanjanga Bharat ka sabse uncha shikhar hai.",
+              "hack": "India mein highest = Kanchenjunga, world = Everest."
+            },
+            {
+              "q": "Uttar Pradesh ki rajdhani kya hai? [UP Police Constable 2018]",
+              "a": "Lucknow Uttar Pradesh ki rajdhani hai.",
+              "hack": "UP GK ka sabse basic aur most repeated fact."
+            },
+            {
+              "q": "Thar marusthal Bharat ke kis rajya mein sthit hai? [UP Police Constable 2019]",
+              "a": "Ye mukhyata Rajasthan mein sthit hai.",
+              "hack": "Thar = Rajasthan = Great Indian Desert."
+            },
+            {
+              "q": "Bharat ka sabse bada rajya kshetrafal ke anusar kaun sa hai? [UP Police Constable 2018]",
+              "a": "Rajasthan sabse bada rajya hai.",
+              "hack": "Area biggest = Rajasthan, population biggest = UP."
+            },
+            {
+              "q": "Bharat ka sabse adhik aabadi wala rajya kaun sa hai? [UP Police Constable 2019]",
+              "a": "Uttar Pradesh sabse adhik aabadi wala rajya hai.",
+              "hack": "UP = population king; exam mein baar-baar poocha jata hai."
+            },
+            {
+              "q": "Bharat ke kitne padosi desh hain? [UP Police Constable 2018]",
+              "a": "Aam tor par 7 sthaliye padosi desh bataye jate hain; exam options ke hisab se answer dena hota hai.",
+              "hack": "Pakistan, China, Nepal, Bhutan, Bangladesh, Myanmar, Afghanistan; Sri Lanka samudri padosi hai."
+            }
+          ]
+        },
+        {
+          "name": "Rivers, Mountains & Climate",
+          "qas": [
+            {
+              "q": "Himalaya ki sabse uttari shreni kaun si hai? [UP Police Constable 2018]",
+              "a": "Himadri sabse uttari shreni hai.",
+              "hack": "Order yaad rakho: Himadri, Himachal, Shivalik."
+            },
+            {
+              "q": "Brahmaputra nadi Tibet mein kis naam se jani jati hai? [UP Police Constable 2019]",
+              "a": "Tibet mein ise Tsangpo kaha jata hai.",
+              "hack": "Tsangpo -> Brahmaputra -> Jamuna, teen naam ek nadi."
+            },
+            {
+              "q": "Dakshin-Pashchim monsoon Bharat mein sabse pehle kis rajya mein pravesh karta hai? [UP Police Constable 2018]",
+              "a": "Kerala mein sabse pehle pravesh karta hai.",
+              "hack": "Monsoon entry gate = Kerala."
+            },
+            {
+              "q": "Narmada aur Tapi kis disha mein behne wali nadiyan hain? [UP Police Constable 2019]",
+              "a": "Ye pashchim ki aur behne wali nadiyan hain.",
+              "hack": "West flowing famous pair = Narmada + Tapi."
+            },
+            {
+              "q": "Himalaya aur Vindhyachal ke beech ka maidan kis naam se jana jata hai? [UP Police Constable 2018]",
+              "a": "Isse Uttar Bharat ka maidan ya Indo-Gangetic plain se joda jata hai, option ke hisab se chunna hota hai.",
+              "hack": "Plains related question mein Ganga-Yamuna plain ya Northern plain options dekhna."
+            }
+          ]
+        },
+        {
+          "name": "Indian Constitution",
+          "qas": [
+            {
+              "q": "Bharatiya Samvidhan kab lagu hua? [UP Police Constable 2018]",
+              "a": "26 January 1950 ko lagu hua.",
+              "hack": "Adopt = 26 Nov 1949, Enforce = 26 Jan 1950."
+            },
+            {
+              "q": "Samvidhan ka kaunsa anuchhed shabd shiksha ke adhikar se sambandhit hai? [UP Police Constable 2019]",
+              "a": "Anuchhed 21A shiksha ke adhikar se sambandhit hai.",
+              "hack": "21A = 6 se 14 saal tak free aur compulsory education."
+            },
+            {
+              "q": "Mool Adhikar Samvidhan ke kis bhaag mein diye gaye hain? [UP Police Constable 2018]",
+              "a": "Part III mein Mool Adhikar diye gaye hain.",
+              "hack": "Part 3 = Fundamental Rights, Part 4 = DPSP."
+            },
+            {
+              "q": "Rajya ke Neeti Nirdeshak Tatva kis bhaag mein hain? [UP Police Constable 2019]",
+              "a": "Part IV mein diye gaye hain.",
+              "hack": "FR court enforceable, DPSP non-justiciable."
+            },
+            {
+              "q": "Mool Kartavya kis anuchhed mein diye gaye hain? [UP Police Constable 2018]",
+              "a": "Anuchhed 51A mein diye gaye hain.",
+              "hack": "51A = Fundamental Duties, total 11."
+            },
+            {
+              "q": "Rashtriya Aapatkal kis anuchhed ke antargat lagayi jati hai? [UP Police Constable 2019]",
+              "a": "Anuchhed 352 ke antargat.",
+              "hack": "352 National, 356 President Rule, 360 Financial."
+            },
+            {
+              "q": "Rajya Sabha ke sadasyon ki adhiktam sankhya kitni hai? [UP Police Constable 2018]",
+              "a": "Rajya Sabha ki adhiktam sankhya 250 hai.",
+              "hack": "238 elected + 12 nominated = 250 max."
+            },
+            {
+              "q": "Supreme Court ke nyayadhishon ki sevanivriti ayu kitni hoti hai? [UP Police Constable 2019]",
+              "a": "65 varsh hoti hai.",
+              "hack": "SC = 65, HC = 62. Ye pair yaad rakho."
+            }
+          ]
+        },
+        {
+          "name": "General Science",
+          "qas": [
+            {
+              "q": "Prakash sansleshan ke dauran kaunsi gas nikalti hai? [UP Police Constable 2018]",
+              "a": "Oxygen gas nikalti hai.",
+              "hack": "Plants CO2 lete hain, O2 chhodte hain."
+            },
+            {
+              "q": "Pani ka rasayanik sutra kya hai? [UP Police Constable 2019]",
+              "a": "H2O pani ka sutra hai.",
+              "hack": "2 Hydrogen + 1 Oxygen = H2O."
+            },
+            {
+              "q": "Vitamin C ki kami se kaunsa rog hota hai? [UP Police Constable 2018]",
+              "a": "Scurvy hota hai.",
+              "hack": "Vitamin C = Scurvy, Vitamin D = Rickets."
+            },
+            {
+              "q": "DNA ka poora naam kya hai? [UP Police Constable 2019]",
+              "a": "Deoxyribonucleic Acid.",
+              "hack": "DNA = genetic code store karta hai."
+            },
+            {
+              "q": "Newton ka doosra niyam kya hai? [UP Police Constable 2018]",
+              "a": "Bal = dravyamaan guna tvaran, yani F = ma.",
+              "hack": "2nd law mein formula direct poocha jata hai."
+            },
+            {
+              "q": "Dhavni ki gati sabse adhik kis madhyam mein hoti hai? [UP Police Constable 2019]",
+              "a": "Thos madhyam mein sabse adhik hoti hai.",
+              "hack": "Solid > Liquid > Gas."
+            },
+            {
+              "q": "Manav sharir ki sabse badi granthi kaun si hai? [UP Police Constable 2018]",
+              "a": "Yakrit ya liver sabse badi granthi hai.",
+              "hack": "Largest gland = liver, largest organ = skin."
+            }
+          ]
+        },
+        {
+          "name": "Current Affairs & Govt Schemes",
+          "qas": [
+            {
+              "q": "Pradhan Mantri Jan Dhan Yojana kis varsh shuru hui? [UP Police Constable 2024]",
+              "a": "2014 mein shuru hui thi.",
+              "hack": "Jan Dhan = bank account + financial inclusion."
+            },
+            {
+              "q": "Swachh Bharat Mission kab prarambh hua? [UP Police Constable 2024]",
+              "a": "2 October 2014 ko shuru hua.",
+              "hack": "Gandhi Jayanti par launch hua tha."
+            },
+            {
+              "q": "Ayushman Bharat yojana mein prati parivar kitne rupaye tak ka health cover diya jata hai? [UP Police Constable 2024]",
+              "a": "5 lakh rupaye tak ka cover diya jata hai.",
+              "hack": "Ayushman Bharat = 5 lakh health insurance."
+            },
+            {
+              "q": "PM Awas Yojana ka mukhya uddeshya kya hai? [UP Police Constable 2024]",
+              "a": "Logon ko pakka ghar uplabdh karana iska mukhya uddeshya hai.",
+              "hack": "Housing scheme pooche to pakka ghar yaad rakho."
+            },
+            {
+              "q": "24 January ko Uttar Pradesh mein kaunsa divas manaya jata hai? [UP Police Constable 2024]",
+              "a": "Uttar Pradesh Sthapana Diwas manaya jata hai.",
+              "hack": "UP special date = 24 Jan."
+            },
+            {
+              "q": "‘Wings of Fire’ pustak ke lekhak kaun hain? [UP Police Constable 2019]",
+              "a": "Dr. A.P.J. Abdul Kalam iske lekhak hain.",
+              "hack": "Kalam books trio: Wings of Fire, Ignited Minds, India 2020."
+            }
+          ]
+        },
+        {
+          "name": "Cyber Crime Awareness",
+          "qas": [
+            {
+              "q": "Phishing ka sambandh kis se hai? [UP Police Constable 2024]",
+              "a": "Fake email ya website ke through personal data churane se sambandh hai.",
+              "hack": "Phishing = data pakadne ki chal; OTP kabhi share mat karo."
+            },
+            {
+              "q": "National Cyber Crime Helpline number kya hai? [UP Police Constable 2024]",
+              "a": "1930 helpline number hai.",
+              "hack": "Cyber fraud yaad = 1930 seedha dimag mein rakho."
+            },
+            {
+              "q": "Information Technology Act Bharat mein kis varsh lagu hua? [UP Police Constable 2024]",
+              "a": "IT Act 2000 mein lagu hua.",
+              "hack": "IT Act 2000 = digital kanoon ki base line."
+            },
+            {
+              "q": "Online financial fraud report karne ke liye rashtriya portal kaun sa hai? [UP Police Constable 2024]",
+              "a": "cybercrime.gov.in portal par report ki ja sakti hai.",
+              "hack": "Portal + helpline pair yaad rakho: cybercrime.gov.in + 1930."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hindi",
+      "topics": [
+        {
+          "name": "Sandhi",
+          "qas": [
+            {
+              "q": "'विद्यालय' shabd mein kaun si sandhi hai? [UP Police Constable 2018]",
+              "a": "Ye swar sandhi ka udaharan hai.",
+              "hack": "Vidya + alaya type words mein swar sandhi check karo."
+            },
+            {
+              "q": "'देवेश' ka sandhi-vicched kya hoga? [UP Police Constable 2019]",
+              "a": "Dev + ईश ya Dev + Ish hoga.",
+              "hack": "Esh/ish wale shabdon mein swar sandhi ka pattern dekhna."
+            },
+            {
+              "q": "'सदैव' mein kaun si sandhi hai? [UP Police Constable 2024]",
+              "a": "Isme vriddhi swar sandhi hoti hai.",
+              "hack": "A + e/ai wale pattern ko vriddhi se jodo."
+            },
+            {
+              "q": "'लोकोपकार' ka sandhi-vicched kya hai? [UP Police Constable 2024]",
+              "a": "Lok + upkar hota hai.",
+              "hack": "O ya au sunai de to gun/vriddhi possibilities check karo."
+            },
+            {
+              "q": "'महोत्सव' ka sandhi-vicched kya hoga? [UP Police Constable 2018]",
+              "a": "Maha + utsav hoga.",
+              "hack": "Maha + u se maho type sound aaye to gun sandhi yaad karo."
+            }
+          ]
+        },
+        {
+          "name": "Samas",
+          "qas": [
+            {
+              "q": "'राजा-रानी' mein kaun sa samas hai? [UP Police Constable 2018]",
+              "a": "Ye dvandva samas hai.",
+              "hack": "Jahan dono shabd barabar important hon, wahan dvandva."
+            },
+            {
+              "q": "'नीलकमल' mein kaun sa samas hai? [UP Police Constable 2019]",
+              "a": "Ye karmadharaya samas hai.",
+              "hack": "Visheshan + visheshya = karmadharaya."
+            },
+            {
+              "q": "'दशानन' kis samas ka udaharan hai? [UP Police Constable 2024]",
+              "a": "Ye bahuvrihi samas ka udaharan hai.",
+              "hack": "Jo kisi teesre vyakti ko bataye, wo bahuvrihi."
+            },
+            {
+              "q": "'त्रिलोकी' mein kaun sa samas hai? [UP Police Constable 2024]",
+              "a": "Ye dvigu samas hai.",
+              "hack": "Number + noun wale samas mein dvigu dhundo."
+            },
+            {
+              "q": "'यथाशक्ति' mein kaun sa samas hai? [UP Police Constable 2018]",
+              "a": "Ye avyayibhav samas hai.",
+              "hack": "Yatha, prati, upa jaise aarambh wale words mein avyayibhav common hota hai."
+            }
+          ]
+        },
+        {
+          "name": "Tatsam-Tadbhav",
+          "qas": [
+            {
+              "q": "'अग्नि' ka tadbhav roop kya hai? [UP Police Constable 2018]",
+              "a": "Iska tadbhav roop 'aag' hai.",
+              "hack": "Agni -> aag bahut famous pair hai."
+            },
+            {
+              "q": "'दुग्ध' ka tadbhav kya hoga? [UP Police Constable 2019]",
+              "a": "Iska tadbhav 'doodh' hai.",
+              "hack": "Dugdh se doodh direct pair yaad rakho."
+            },
+            {
+              "q": "'नख' ka tadbhav roop kya hai? [UP Police Constable 2024]",
+              "a": "Iska tadbhav 'naakhun' hai.",
+              "hack": "Tatsam short, tadbhav bolchal wala hota hai."
+            },
+            {
+              "q": "'कर्म' ka tadbhav roop kya hai? [UP Police Constable 2024]",
+              "a": "Iska tadbhav 'kaam' mana jata hai.",
+              "hack": "Karm -> kaam pair exam favourite hai."
+            },
+            {
+              "q": "'हस्त' ka tadbhav roop kya hai? [UP Police Constable 2018]",
+              "a": "Iska tadbhav 'haath' hai.",
+              "hack": "Hasta/hand related words mein haath yaad rakho."
+            }
+          ]
+        },
+        {
+          "name": "Paryayvachi & Vilom",
+          "qas": [
+            {
+              "q": "'सूर्य' ka paryayvachi kaun sa hai? [UP Police Constable 2018]",
+              "a": "Ravi, Bhaskar, Aditya jaise shabd iske paryayvachi hain.",
+              "hack": "Surya = Ravi ya Bhaskar option sabse common."
+            },
+            {
+              "q": "'जल' ka paryayvachi kaun sa hai? [UP Police Constable 2019]",
+              "a": "Neer, ambu, toya, vari sab jal ke paryayvachi hain.",
+              "hack": "Jal ke rare options jaise ambu, vari pe focus karo."
+            },
+            {
+              "q": "'उदय' ka vilom kya hai? [UP Police Constable 2024]",
+              "a": "Iska vilom 'ast' hota hai.",
+              "hack": "Surya related pair: uday-ast."
+            },
+            {
+              "q": "'सुख' ka vilom kya hai? [UP Police Constable 2024]",
+              "a": "Iska vilom 'dukh' hai.",
+              "hack": "Simple vilom mein trap kam hota hai, speed se karo."
+            },
+            {
+              "q": "'अंधकार' ka paryayvachi ya vilom sambandhi prashn mein sahi jod kaun sa hoga? [UP Police Constable 2018]",
+              "a": "Iska vilom 'prakash' hota hai.",
+              "hack": "Darkness-light pair direct yaad rakho."
+            }
+          ]
+        },
+        {
+          "name": "Muhavare & Lokoktiyan",
+          "qas": [
+            {
+              "q": "'आंखें दिखाना' muhavare ka arth kya hai? [UP Police Constable 2018]",
+              "a": "Iska arth dhamkana ya daraana hota hai.",
+              "hack": "Muhavare mein literal meaning mat lagao."
+            },
+            {
+              "q": "'नाक कटना' muhavare ka sahi arth kya hai? [UP Police Constable 2019]",
+              "a": "Iska arth apmaan hona hota hai.",
+              "hack": "Naak = samman; naak katna = badnami."
+            },
+            {
+              "q": "'अंधेर नगरी चौपट राजा' lokokti ka arth kya hai? [UP Police Constable 2024]",
+              "a": "Jahan vyavastha na ho aur shasan bekaar ho, us arth mein use hoti hai.",
+              "hack": "Law-order context wali lokokti yaad rakho."
+            },
+            {
+              "q": "'आम के आम गुठलियों के दाम' lokokti ka arth kya hai? [UP Police Constable 2024]",
+              "a": "Ek kaam se do fayde milna.",
+              "hack": "Double benefit wali lokokti hai."
+            },
+            {
+              "q": "'हाथ मलना' muhavare ka arth kya hai? [UP Police Constable 2018]",
+              "a": "Pachtana ya dukh manana.",
+              "hack": "Action based muhavare mein emotional meaning nikalta hai."
+            }
+          ]
+        },
+        {
+          "name": "Vakya Shuddhi & Shabd Shuddhi",
+          "qas": [
+            {
+              "q": "Nimn me se shuddh shabd kaun sa hai? 'दुर्गति/dugati' type prashn [UP Police Constable 2018]",
+              "a": "Aise prashn mein sahi varnavinyas wala shabd chunna hota hai; common correct form 'durgati' hota hai.",
+              "hack": "Spelling questions mein matra aur half-letter dhyan se dekho."
+            },
+            {
+              "q": "Vakya shuddhi ke anusaar 'राम ने खाना खाई' ka shuddh roop kya hoga? [UP Police Constable 2019]",
+              "a": "Shuddh roop hoga 'Ram ne khana khaya'.",
+              "hack": "Ling aur kriya ka milan sabse common error hai."
+            },
+            {
+              "q": "'निरोपित/निरूपित' me se shuddh shabd kaun sa hai? [UP Police Constable 2024]",
+              "a": "Shuddh roop 'nirupit' hota hai.",
+              "hack": "Ru, ri, re ke variant options mein pronunciation se confuse mat ho."
+            },
+            {
+              "q": "'जो सब कुछ जानता हो' ke liye ek shabd kya hoga? [UP Police Constable 2024]",
+              "a": "Iske liye ek shabd 'sarvagya' hai.",
+              "hack": "One-word substitution mein definition ko key word se pakdo."
+            },
+            {
+              "q": "'जो कभी न मरे' ke liye ek shabd kya hai? [UP Police Constable 2018]",
+              "a": "Iske liye shabd 'amar' hai.",
+              "hack": "A- prefix se negative meaning wale shabd yaad rakho."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Maths & Mental",
+      "topics": [
+        {
+          "name": "Number System & HCF/LCM",
+          "qas": [
+            {
+              "q": "दो संख्याओं का HCF 12 और LCM 336 है। यदि एक संख्या 84 hai, to doosri sankhya kya hogi? [UP Police Constable 2018]",
+              "a": "Dusri sankhya 48 hogi.",
+              "hack": "Formula yaad: do numbers ka product = HCF × LCM."
+            },
+            {
+              "q": "440 aur 660 ka HCF kya hai? [UP Police Constable 2019]",
+              "a": "Inka HCF 220 hota hai.",
+              "hack": "Badi common divisibility based calculation hai."
+            },
+            {
+              "q": "Sabse chhoti woh sankhya kaun si hai jo 12, 15 aur 20 se poori bhag jaye? [UP Police Constable 2024]",
+              "a": "Iska LCM 60 hoga.",
+              "hack": "LCM wale prashn mein prime factorization fastest hota hai."
+            },
+            {
+              "q": "1 se 100 ke beech kitni prime sankhyayen hoti hain? [UP Police Constable 2024]",
+              "a": "Kul 25 prime numbers hoti hain.",
+              "hack": "1 prime nahi hota, 2 eklauta even prime hai."
+            },
+            {
+              "q": "Nimn me se kaun composite sankhya hai? [UP Police Constable 2018]",
+              "a": "4, 6, 8, 9 jaise numbers composite hote hain; option ke hisab se answer choose hota hai.",
+              "hack": "Prime = sirf 2 factors; composite = 2 se zyada factors."
+            }
+          ]
+        },
+        {
+          "name": "Percentage",
+          "qas": [
+            {
+              "q": "Ek sankhya ka 20% = 80 hai, sankhya kya hai? [UP Police Constable 2018]",
+              "a": "Sankhya 400 hogi.",
+              "hack": "20% diya ho to 5 se multiply kar do."
+            },
+            {
+              "q": "Kisi vastu ka moolya 25% badhkar 500 ho gaya. Purana moolya kya tha? [UP Police Constable 2019]",
+              "a": "Purana moolya 400 tha.",
+              "hack": "125% = 500, to 100% = 500×100/125."
+            },
+            {
+              "q": "Kisi kaksha me 40 vidyarthi hain, jinme 60% ladke hain. Ladkiyon ki sankhya kitni hai? [UP Police Constable 2024]",
+              "a": "Ladkiyan 16 hongi.",
+              "hack": "60% boys matlab 40% girls."
+            },
+            {
+              "q": "500 ka 12% kitna hota hai? [UP Police Constable 2024]",
+              "a": "Iska maan 60 hota hai.",
+              "hack": "10% + 2% trick se turant nikalo."
+            },
+            {
+              "q": "Kisi sankhya me 10% vriddhi ke baad 220 hota hai, mool sankhya kya thi? [UP Police Constable 2018]",
+              "a": "Mool sankhya 200 thi.",
+              "hack": "110% = 220, to 100% = 200."
+            }
+          ]
+        },
+        {
+          "name": "Profit & Loss",
+          "qas": [
+            {
+              "q": "Ek vastu 20% labh par 600 rupaye me bechi gayi. Iska kray moolya kya tha? [UP Police Constable 2018]",
+              "a": "Kray moolya 500 rupaye tha.",
+              "hack": "SP = 120% of CP, isliye CP = 600/1.2."
+            },
+            {
+              "q": "Koi vyakti vastu ko 12% haani par 1452 rupaye me bechta hai. Kray moolya kya hoga? [UP Police Constable 2019]",
+              "a": "Kray moolya 1650 rupaye hoga.",
+              "hack": "Loss case me SP = 88% of CP."
+            },
+            {
+              "q": "Ek vastu 29% labh par 28380 me bechi gayi. Yadi wahi vastu 24090 me bechi jaye to labh pratishat kya hoga? [UP Police Constable 2024]",
+              "a": "Labh 9.5% hoga.",
+              "hack": "Pehle CP nikalo, phir naya profit% nikaal do."
+            },
+            {
+              "q": "600 rupaye ki vastu ka 3/4 bhaag 10% labh par aur 1/4 bhaag 20% haani par becha gaya. Kul labh/haani kya hogi? [UP Police Constable 2024]",
+              "a": "Kul milakar 2.5% labh hoga.",
+              "hack": "Part-wise SP jodo, phir total CP se compare karo."
+            },
+            {
+              "q": "Discount aur profit me antar kis aadhar par hota hai? [UP Police Constable 2018]",
+              "a": "Discount MRP par hota hai aur profit/loss CP par nikalta hai.",
+              "hack": "MP, SP, CP teenon ko alag rakho warna galti pakki."
+            }
+          ]
+        },
+        {
+          "name": "Simple & Compound Interest",
+          "qas": [
+            {
+              "q": "1000 rupaye par 10% dar se 2 varsh ka chakravriddhi byaaj kitna hoga? [UP Police Constable 2018]",
+              "a": "Chakravriddhi byaaj 210 rupaye hoga.",
+              "hack": "A = P(1+r/100)^n se direct karo."
+            },
+            {
+              "q": "Kisi dhan par 2 varsh ka CI 2000 aur SI 1900 hai. Dono ka antar 100 hai. Ye kis concept se juda prashn hai? [UP Police Constable 2019]",
+              "a": "Ye 2 saal ke CI-SI difference concept se juda hai.",
+              "hack": "2 years me CI-SI = first year interest par extra interest."
+            },
+            {
+              "q": "Saral byaaj ka sutra kya hai? [UP Police Constable 2024]",
+              "a": "SI = P × R × T / 100 hota hai.",
+              "hack": "P, R, T ka full form exam se pehle rat lo."
+            },
+            {
+              "q": "5000 rupaye par 5% dar se 2 varsh ka saral byaaj kitna hoga? [UP Police Constable 2024]",
+              "a": "Saral byaaj 500 rupaye hoga.",
+              "hack": "5000 ka 5% = 250, do saal = 500."
+            },
+            {
+              "q": "Saral byaaj aur chakravriddhi byaaj me kaun sa adhik hota hai, ka samay aur dar same ho? [UP Police Constable 2018]",
+              "a": "CI adhik hota hai.",
+              "hack": "Interest on interest ki wajah se CI hamesha bada ya equal hota hai."
+            }
+          ]
+        },
+        {
+          "name": "Ratio, Proportion & Average",
+          "qas": [
+            {
+              "q": "Anupat 2:3 me agar pehla pad 40 ho to doosra pad kya hoga? [UP Police Constable 2018]",
+              "a": "Doosra pad 60 hoga.",
+              "hack": "Part ki value = 40/2 = 20, dusra = 20×3 = 60."
+            },
+            {
+              "q": "5 logon ki average age 30 saal hai. Ek aur vyakti 36 saal ka aaye to nayi average kya hogi? [UP Police Constable 2019]",
+              "a": "Nayi average 31 saal hogi.",
+              "hack": "Total = 150, +36 = 186, 186/6 = 31."
+            },
+            {
+              "q": "Dono sankhyaon ka anupat 3:4 aur unka LCM 120 hai. Chhoti sankhya kya hogi? [UP Police Constable 2024]",
+              "a": "Chhoti sankhya 90 hogi.",
+              "hack": "3x aur 4x le, LCM = 12x = 120, x = 10, to 3x = 30."
+            },
+            {
+              "q": "Ek class me 40 vidyarthi hain, jinme girls ka anupat 3:5 hai. Ladkiyon ki sankhya kitni hai? [UP Police Constable 2024]",
+              "a": "Ladkiyan 15 hongi.",
+              "hack": "Total parts = 8, girls = 3/8 × 40 = 15."
+            },
+            {
+              "q": "Average of 8 numbers = 20. Agar ek number 28 ko badal kar 32 kiya jaye to nayi average kya hogi? [UP Police Constable 2018]",
+              "a": "Nayi average 20.5 hogi.",
+              "hack": "Difference = +4, total = 160+4 = 164, 164/8 = 20.5."
+            }
+          ]
+        },
+        {
+          "name": "Time, Work & Speed",
+          "qas": [
+            {
+              "q": "A 10 din aur B 15 din me kaam karta hai. Saath me kitne din me karenge? [UP Police Constable 2018]",
+              "a": "Saath me 6 din me karenge.",
+              "hack": "LCM method: LCM(10,15)=30, A=3 unit, B=2 unit, total=5 unit/day, 30/5=6."
+            },
+            {
+              "q": "Speed 60 km/h aur time 3 ghante hai. Door kitni hogi? [UP Police Constable 2019]",
+              "a": "Doori 180 km hogi.",
+              "hack": "D = S × T = 60×3 = 180."
+            },
+            {
+              "q": "Koi vyakti 120 km ki doori 4 ghante me pura karta hai. Uski average speed kya hai? [UP Police Constable 2024]",
+              "a": "Average speed 30 km/h hai.",
+              "hack": "Speed = D/T = 120/4 = 30."
+            },
+            {
+              "q": "A 8 din me kaam karta hai aur B usse adha kaam 6 din me karta hai. Saath me kitne din me karenge? [UP Police Constable 2024]",
+              "a": "Saath me 4.8 din me karenge.",
+              "hack": "B pura kaam 12 din me karega, to 1/8+1/12 = 5/24, total = 24/5 = 4.8."
+            },
+            {
+              "q": "60 km/h ki speed se operate hote vyakti ki speed m/s me kya hogi? [UP Police Constable 2018]",
+              "a": "Speed 16.67 m/s hogi.",
+              "hack": "km/h → m/s ke liye ×5/18: 60×5/18 = 16.67."
+            }
+          ]
+        },
+        {
+          "name": "Mensuration",
+          "qas": [
+            {
+              "q": "Rectangle ki length 10 cm aur breadth 6 cm hai. Area kya hoga? [UP Police Constable 2018]",
+              "a": "Area 60 cm² hoga.",
+              "hack": "Area = L × B = 10×6 = 60."
+            },
+            {
+              "q": "Ek vritta (circle) ka parimiti 44 cm hai. Iska vruh (radius) kya hoga? [UP Police Constable 2019]",
+              "a": "Radius 7 cm hoga.",
+              "hack": "2πr = 44, r = 44/(2π) ≈ 7."
+            },
+            {
+              "q": "Cube ka parsh kshetrafal (surface area) 24 cm² hai. Uska ek parsh (side) kya hoga? [UP Police Constable 2024]",
+              "a": "Side 2 cm hoga.",
+              "hack": "Surface area = 6a² = 24, a² = 4, a = 2."
+            },
+            {
+              "q": "Cylinder ka volume πr²h ke sutr se nikalta hai. Agar r=3, h=5 to volume kya hoga? [UP Police Constable 2024]",
+              "a": "Volume 45π cm³ hoga.",
+              "hack": "V = π×9×5 = 45π."
+            },
+            {
+              "q": "Samabhuj tribhuj (equilateral triangle) ka prshṅ 12 cm hai. Area kya hoga? [UP Police Constable 2018]",
+              "a": "Area 36√3/4 = 9√3 cm² hoga.",
+              "hack": "Area = (√3/4)×a² = (√3/4)×144 = 36√3."
+            }
+          ]
+        },
+        {
+          "name": "Mental Ability — Series",
+          "qas": [
+            {
+              "q": "2, 5, 10, 17, 26, ? — agya sankhya kya hai? [UP Police Constable 2018]",
+              "a": "Agla sankhya 37 hoga.",
+              "hack": "+3, +5, +7, +9, +11 pattern: 26+11=37."
+            },
+            {
+              "q": "Coding: MANGO = NBOQP, to APPLE = ? [UP Police Constable 2019]",
+              "a": "APPLE = BQQMF hoga.",
+              "hack": "Har letter +1 shift: A→B, P→Q, P→Q, L→M, E→F."
+            },
+            {
+              "q": "Blood Relation: A ki biwi ki maa ka pati kaun hoga? [UP Police Constable 2024]",
+              "a": "A ke sasur honge.",
+              "hack": "Biwi ki maa = saas, saas ke pati = sasur."
+            },
+            {
+              "q": "Series: 3, 9, 27, 81, ? — next kya hai? [UP Police Constable 2024]",
+              "a": "Next 243 hoga.",
+              "hack": "Har step ×3: 81×3 = 243."
+            },
+            {
+              "q": "A, B, C, D, E alphabet sequence me agla letter kaun hoga? [UP Police Constable 2018]",
+              "a": "Next letter F hoga.",
+              "hack": "Simple alphabetical order."
+            }
+          ]
+        },
+        {
+          "name": "Direction Sense & Ranking",
+          "qas": [
+            {
+              "q": "Koi vyakti East ki aur chalta hai, phir apne left me 90° mudta hai. Ab vyakti kis disha me hai? [UP Police Constable 2018]",
+              "a": "Ab vyakti North disha me hai.",
+              "hack": "East se left = North."
+            },
+            {
+              "q": "A, line me 5th from top aur 8th from bottom hai. Total members kitne honge? [UP Police Constable 2019]",
+              "a": "Total 12 members honge.",
+              "hack": "Formula: 5+8–1 = 12."
+            },
+            {
+              "q": "Direction: Surya pradishat (sunrise) mein kahan se uggta hai? [UP Police Constable 2024]",
+              "a": "Surya East se uggta hai.",
+              "hack": "Sunrise = East, sunset = West."
+            },
+            {
+              "q": "A, 10th from top aur 15th from bottom hai. Kul vidyarthi kitne hain? [UP Police Constable 2024]",
+              "a": "Kul vidyarthi 24 honge.",
+              "hack": "10+15–1 = 24."
+            },
+            {
+              "q": "Kisi vyakti ki shadow West mein hai. Surya kis disha me hoga? [UP Police Constable 2018]",
+              "a": "Surya East disha me hoga.",
+              "hack": "Shadow = sun ki opposite disha mein."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reasoning & Aptitude",
+      "topics": [
+        {
+          "name": "Analogy & Classification",
+          "qas": [
+            {
+              "q": "Doctor : Hospital :: Teacher : ? [UP Police Constable 2018]",
+              "a": "Teacher : School hoga.",
+              "hack": "Worker : Workplace pattern."
+            },
+            {
+              "q": "Lion, Tiger, Cheetah, Elephant — odd one out kaun hai? [UP Police Constable 2019]",
+              "a": "Elephant odd one out hai.",
+              "hack": "Baaki teen sab cat family, elephant alag."
+            },
+            {
+              "q": "Pen : Writer :: Brush : ? [UP Police Constable 2024]",
+              "a": "Brush : Painter hoga.",
+              "hack": "Tool : User pattern."
+            },
+            {
+              "q": "Stipend : Student :: Salary : ? [UP Police Constable 2024]",
+              "a": "Salary : Employee hoga.",
+              "hack": "Payment : Recipient relationship."
+            },
+            {
+              "q": "Gold : Metal :: Rose : ? [UP Police Constable 2018]",
+              "a": "Rose : Flower hoga.",
+              "hack": "Sample : Category pattern."
+            }
+          ]
+        },
+        {
+          "name": "Venn Diagram & Syllogism",
+          "qas": [
+            {
+              "q": "All dogs are animals. All animals are living. Conclusion: All dogs are living — sahi hai? [UP Police Constable 2018]",
+              "a": "Haan, sahi hai.",
+              "hack": "All A→B, All B→C, to All A→C."
+            },
+            {
+              "q": "All cats are black. Some black are dogs. Conclusion: Some cats are dogs — sahi hai? [UP Police Constable 2019]",
+              "a": "Nahi, sahi nahi hai.",
+              "hack": "Direct chain nahi ban rahi, conclusion invalid."
+            },
+            {
+              "q": "No apple is orange. All oranges are fruits. Conclusion: No apple is fruit — sahi hai? [UP Police Constable 2024]",
+              "a": "Nahi, sahi nahi hai.",
+              "hack": "Apple fruit ho sakta hai, orange na ho."
+            },
+            {
+              "q": "All pens are pencils. Some pencils are books. Conclusion: Some pens are books — sahi hai? [UP Police Constable 2024]",
+              "a": "Nahi, follow nahi hota.",
+              "hack": "Some wale case me direct jaan nahi pakki hoti."
+            },
+            {
+              "q": "Venn diagram mein 'All A are B' ko kaise dikhaya jata hai? [UP Police Constable 2018]",
+              "a": "A ki circle B ki circle ke andar dikhti hai.",
+              "hack": "All = andar, Some = overlap, No = alag."
+            }
+          ]
+        },
+        {
+          "name": "Puzzle & Statement-Conclusion",
+          "qas": [
+            {
+              "q": "Statement: All students should get free education. Argument: Education is basic right — strong ya weak? [UP Police Constable 2018]",
+              "a": "Strong argument hai.",
+              "hack": "Logical + factual argument strong hota hai."
+            },
+            {
+              "q": "Circular seating: A, B, C, D, E clockwise. Agar A north pe hai, to C kis disha me hoga? [UP Police Constable 2019]",
+              "a": "C South-West disha me hoga.",
+              "hack": "Clockwise count: North → East → South (pattern based reasoning)."
+            },
+            {
+              "q": "Statement: Smoking is harmful. Argument: Tobacco company profits kam honge — strong ya weak? [UP Police Constable 2024]",
+              "a": "Weak argument hai.",
+              "hack": "Emotional/secondary argument weak hota hai."
+            },
+            {
+              "q": "Line seating: A, B, C, D, E. A left end, E right end. B, A ke right. C, E ke left. Madhya me kaun hai? [UP Police Constable 2024]",
+              "a": "Madhya me C ya B ho sakta hai, option ke hisab se resolve hota hai.",
+              "hack": "Fixed positions pehle, phir relative."
+            },
+            {
+              "q": "Strong argument ki pehchan kya hai? [UP Police Constable 2018]",
+              "a": "Logical, relevant, factual argument strong hota hai.",
+              "hack": "Emotional ya opinion-based argument weak."
+            }
+          ]
+        },
+        {
+          "name": "Alphabet & Mathematical Reasoning",
+          "qas": [
+            {
+              "q": "English alphabet me 15th letter kaun hai? [UP Police Constable 2018]",
+              "a": "O 15th letter hai.",
+              "hack": "EJOTY: E=5, J=10, O=15, T=20, Y=25."
+            },
+            {
+              "q": "BODMAS me 'O' ka kya matlab hai? [UP Police Constable 2019]",
+              "a": "'Of' ya powers/exponents hota hai.",
+              "hack": "BODMAS order: Brackets, Of, Division, Multiplication, Addition, Subtraction."
+            },
+            {
+              "q": "MANGO = NBOQP pattern me APPLE = ? [UP Police Constable 2024]",
+              "a": "APPLE = BQQMF.",
+              "hack": "+1 shift on each letter."
+            },
+            {
+              "q": "Alphabet me 20th letter kaun hai? [UP Police Constable 2024]",
+              "a": "T 20th letter hai.",
+              "hack": "T = 20, EJOTY trick se yaad."
+            },
+            {
+              "q": "Mathematical expression me brackets pehle kyun todte hain? [UP Police Constable 2018]",
+              "a": "BODMAS rule ke anusar brackets pehle solve hote hain.",
+              "hack": "Order strict: Brackets of DM AS."
+            }
+          ]
+        },
+        {
+          "name": "Law & Order / Police Ethics",
+          "qas": [
+            {
+              "q": "Police ka primary duty kya hai? [UP Police Constable 2018]",
+              "a": "Law aur order maintain karna, crime rokna, public safety ensure karna.",
+              "hack": "Public trust = police ki pehli zimmedari."
+            },
+            {
+              "q": "FIR kya hoti hai aur kahan darj hoti hai? [UP Police Constable 2019]",
+              "a": "FIR = First Information Report, police station mein darj hoti hai.",
+              "hack": "FIR = CrPC Section 154, free of cost."
+            },
+            {
+              "q": "Arrest karne ke baad 24 ghante mein kya karna padta hai? [UP Police Constable 2024]",
+              "a": "Magistrate ke samne pesh karna padta hai.",
+              "hack": "Article 22: 24 ghante me magistrate presentation."
+            },
+            {
+              "q": "Police officer ko public interest mein kya karna chahiye? [UP Police Constable 2024]",
+              "a": "Nishpaksha rahna, rashwat na lena, equal protection dena.",
+              "hack": "Ethics = impartiality + law-following."
+            },
+            {
+              "q": "Neta case band karne bol raha hai, police kya kare? [UP Police Constable 2018]",
+              "a": "Neta ki baat nahi maani jati, case legally proceed karna hai.",
+              "hack": "Law > Political pressure."
+            }
+          ]
+        },
+        {
+          "name": "Logical Sequence & Coding",
+          "qas": [
+            {
+              "q": "Dictionary order: Bat, Ball, Bag, Bad — sahi order kya hoga? [UP Police Constable 2018]",
+              "a": "Bag, Bad, Ball, Bat sahi order hai.",
+              "hack": "Alphabetical: g<d<l<t."
+            },
+            {
+              "q": "Coding: MANGO = NBOQP, to APPLE = ? [UP Police Constable 2019]",
+              "a": "APPLE = BQQMF.",
+              "hack": "+1 shift pattern."
+            },
+            {
+              "q": "Logical sequence: 2, 4, 8, 16, ? — next kya hai? [UP Police Constable 2024]",
+              "a": "Next 32 hoga.",
+              "hack": "×2 pattern: 16×2=32."
+            },
+            {
+              "q": "Alphabetical order: Cat, Car, Cart, Cap — sahi sequence? [UP Police Constable 2024]",
+              "a": "Car, Cart, Cat, Cap sahi sequence hai.",
+              "hack": "Second letter compare: a<r<t."
+            },
+            {
+              "q": "Coding pattern me har letter +2 shift ho raha hai. ABC = ? [UP Police Constable 2018]",
+              "a": "ABC = CDE hoga.",
+              "hack": "+2 shift: A→C, B→D, C→E."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
