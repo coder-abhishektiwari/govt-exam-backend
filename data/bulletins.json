@@ -1,0 +1,32 @@
+{
+  "bulletins": [
+    {
+      "id": "bulletin-1",
+      "date": "June 05, 2026",
+      "title": "Advisory against exam malpractice, paper distribution networks, and solver gangs released by executive board.",
+      "link": "#",
+      "is_new": true
+    },
+    {
+      "id": "bulletin-2",
+      "date": "June 04, 2026",
+      "title": "Direct operational link activated for downloading candidate admit slips across core zones.",
+      "link": "#",
+      "is_new": true
+    },
+    {
+      "id": "bulletin-3",
+      "date": "May 28, 2026",
+      "title": "Local administration sets up dedicated helpdesks at railway stations and bus terminals for traveling aspirants.",
+      "link": "#",
+      "is_new": false
+    },
+    {
+      "id": "bulletin-4",
+      "date": "May 07, 2026",
+      "title": "Final answer key matrices published for upstream Sub-Inspector administrative examinations.",
+      "link": "#",
+      "is_new": false
+    }
+  ]
+}

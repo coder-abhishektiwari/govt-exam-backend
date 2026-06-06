@@ -11,8 +11,8 @@ from datetime import datetime
 
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
-from config import CACHE_DIR, MAX_CACHE_FILES
-from models import PDFGenerationRequest, QuestionPaper, Section
+from config import CACHE_DIR, MAX_CACHE_FILES, ANNOUNCEMENTS_FILE, BULLETINS_FILE, ANALYTICS_FILE
+from models import PDFGenerationRequest, QuestionPaper, Section, Announcement, Bulletin, AnalyticsMetric
 from paper_repository import paper_repository
 
 app = FastAPI(title="Question Paper PDF Generator")
@@ -36,6 +36,27 @@ def delete_paper(paper_id: str):
 
 def get_all_papers_metadata():
     return paper_repository.list_metadata()
+
+def load_data_file(file_path):
+    """Load JSON data file"""
+    if not file_path.exists():
+        return {}
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error loading {file_path}: {e}")
+        return {}
+
+def save_data_file(file_path, data):
+    """Save JSON data file"""
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return True
+    except Exception as e:
+        print(f"Error saving {file_path}: {e}")
+        return False
 
 def get_cache_key(paper_id: str, sections: List[Section]) -> str:
     """Generate cache key"""
@@ -321,3 +342,48 @@ async def delete_paper_endpoint(paper_id: str):
     if not delete_paper(paper_id):
         raise HTTPException(status_code=404, detail=f"Paper '{paper_id}' not found")
     return {"status": "success", "message": f"Paper '{paper_id}' deleted"}
+
+
+@app.get("/announcements")
+async def get_announcements():
+    """Get ticker announcements"""
+    data = load_data_file(ANNOUNCEMENTS_FILE)
+    return data or {"announcements": []}
+
+
+@app.get("/bulletins")
+async def get_bulletins():
+    """Get official bulletins"""
+    data = load_data_file(BULLETINS_FILE)
+    return data or {"bulletins": []}
+
+
+@app.get("/analytics")
+async def get_analytics():
+    """Get system analytics metrics"""
+    data = load_data_file(ANALYTICS_FILE)
+    return data or {"metrics": []}
+
+
+@app.post("/admin/announcements")
+async def update_announcements(data: Dict):
+    """Update announcements (admin endpoint)"""
+    if save_data_file(ANNOUNCEMENTS_FILE, data):
+        return {"status": "success", "message": "Announcements updated"}
+    return JSONResponse(status_code=500, content={"error": "Failed to save announcements"})
+
+
+@app.post("/admin/bulletins")
+async def update_bulletins(data: Dict):
+    """Update bulletins (admin endpoint)"""
+    if save_data_file(BULLETINS_FILE, data):
+        return {"status": "success", "message": "Bulletins updated"}
+    return JSONResponse(status_code=500, content={"error": "Failed to save bulletins"})
+
+
+@app.post("/admin/analytics")
+async def update_analytics(data: Dict):
+    """Update analytics (admin endpoint)"""
+    if save_data_file(ANALYTICS_FILE, data):
+        return {"status": "success", "message": "Analytics updated"}
+    return JSONResponse(status_code=500, content={"error": "Failed to save analytics"})

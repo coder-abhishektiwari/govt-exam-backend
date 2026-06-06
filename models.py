@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -35,3 +35,25 @@ class PDFGenerationRequest(BaseModel):
     data: List[Section]
     title: str = "Question Bank"
     filename: str = "QuestionBank"
+
+
+class Announcement(BaseModel):
+    id: str
+    title: str
+    description: str
+    icon: str = "⚠️"
+    link: Optional[str] = None
+
+
+class Bulletin(BaseModel):
+    id: str
+    date: str
+    title: str
+    link: str = "#"
+    is_new: bool = False
+
+
+class AnalyticsMetric(BaseModel):
+    label: str
+    value: str
+    description: str
