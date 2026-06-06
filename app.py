@@ -213,6 +213,10 @@ async def home():
         }
     }
 
+@app.head("/")
+async def health_check():
+    return JSONResponse(content=None)
+
 @app.get("/papers")
 async def list_papers():
     """List all papers (fast - metadata only)"""
