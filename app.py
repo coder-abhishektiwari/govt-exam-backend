@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
+
 from pydantic import BaseModel
 from typing import List
 from io import BytesIO
+
+from xml.sax.saxutils import escape
 
 from reportlab.platypus import (
     SimpleDocTemplate,
@@ -20,46 +23,77 @@ from reportlab.lib.styles import (
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-app = FastAPI()
+
+# =========================
+# APP
+# =========================
+
+app = FastAPI(title="Array To PDF Converter")
+
+
+# =========================
+# CORS
+# =========================
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Production me specific domain dena
+    allow_origins=["*"],  # production me domain lagana
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Unicode Font
+
+# =========================
+# FONT
+# =========================
+
+FONT_PATH = "fonts/NotoSansDevanagari-Regular.ttf"
+
 pdfmetrics.registerFont(
     TTFont(
         "Noto",
-        "fonts/NotoSansDevanagari-Regular.ttf"
+        FONT_PATH
     )
 )
 
-# ------------------------
-# Models
-# ------------------------
+
+# =========================
+# HELPERS
+# =========================
+
+def safe(value):
+    """
+    ReportLab HTML parsing crash se bachata hai.
+    """
+    return escape(str(value or ""))
+
+
+# =========================
+# MODELS
+# =========================
 
 class QA(BaseModel):
     q: str
     a: str
     hack: str
 
+
 class Topic(BaseModel):
     name: str
     qas: List[QA]
+
 
 class Section(BaseModel):
     name: str
     topics: List[Topic]
 
-# ------------------------
-# PDF Generator
-# ------------------------
 
-def build_pdf(data):
+# =========================
+# PDF BUILDER
+# =========================
+
+def build_pdf(data: List[Section]):
 
     buffer = BytesIO()
 
@@ -78,21 +112,23 @@ def build_pdf(data):
         parent=styles["Heading1"],
         fontName="Noto",
         fontSize=22,
-        leading=30
+        leading=28
     )
 
     section_style = ParagraphStyle(
         "Section",
         parent=styles["Heading2"],
         fontName="Noto",
-        fontSize=18
+        fontSize=18,
+        leading=24
     )
 
     topic_style = ParagraphStyle(
         "Topic",
         parent=styles["Heading3"],
         fontName="Noto",
-        fontSize=14
+        fontSize=14,
+        leading=20
     )
 
     body_style = ParagraphStyle(
@@ -105,18 +141,26 @@ def build_pdf(data):
 
     story = []
 
+    # Title
     story.append(
-        Paragraph("Question Bank", title_style)
+        Paragraph(
+            "Question Bank",
+            title_style
+        )
     )
 
     story.append(
         Spacer(1, 20)
     )
 
+    # Data
     for section in data:
 
         story.append(
-            Paragraph(section.name, section_style)
+            Paragraph(
+                safe(section.name),
+                section_style
+            )
         )
 
         story.append(
@@ -126,32 +170,38 @@ def build_pdf(data):
         for topic in section.topics:
 
             story.append(
-                Paragraph(topic.name, topic_style)
+                Paragraph(
+                    safe(topic.name),
+                    topic_style
+                )
             )
 
             story.append(
-                Spacer(1, 5)
+                Spacer(1, 6)
             )
 
             for idx, qa in enumerate(topic.qas, start=1):
 
+                # Question
                 story.append(
                     Paragraph(
-                        f"<b>Q{idx}:</b> {qa.q}",
+                        f"<b>Q{idx}:</b> {safe(qa.q)}",
                         body_style
                     )
                 )
 
+                # Answer
                 story.append(
                     Paragraph(
-                        f"<b>Answer:</b> {qa.a}",
+                        f"<b>Answer:</b> {safe(qa.a)}",
                         body_style
                     )
                 )
 
+                # Hack
                 story.append(
                     Paragraph(
-                        f"<b>Hack:</b> {qa.hack}",
+                        f"<b>Hack:</b> {safe(qa.hack)}",
                         body_style
                     )
                 )
@@ -168,26 +218,29 @@ def build_pdf(data):
 
     return buffer
 
-# ------------------------
-# API
-# ------------------------
+
+# =========================
+# ROUTES
+# =========================
+
+@app.get("/")
+async def home():
+    return {
+        "status": "running",
+        "message": "PDF API Ready"
+    }
+
 
 @app.post("/generate-pdf")
 async def generate_pdf(data: List[Section]):
 
-    pdf = build_pdf(data)
+    pdf_buffer = build_pdf(data)
 
     return StreamingResponse(
-        pdf,
+        pdf_buffer,
         media_type="application/pdf",
         headers={
             "Content-Disposition":
             "attachment; filename=QuestionBank.pdf"
         }
     )
-
-@app.get("/")
-async def home():
-    return {
-        "status": "running"
-    }
