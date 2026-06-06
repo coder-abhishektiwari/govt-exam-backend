@@ -13,6 +13,23 @@ import json
 # WeasyPrint with specific font config
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
+from pathlib import Path  # Yeh import add kar (imports ke saath)
+
+# ============ HINDI FONT CONFIGURATION ============
+FONT_DIR = Path(__file__).parent / "fonts"
+HINDI_FONT_PATH = None
+
+# Check for any .ttf file in fonts directory
+if FONT_DIR.exists():
+    font_files = list(FONT_DIR.glob("*.ttf")) + list(FONT_DIR.glob("*.otf"))
+    if font_files:
+        HINDI_FONT_PATH = font_files[0]  # Use first font found
+        print(f"✅ Font loaded: {HINDI_FONT_PATH.name}")
+    else:
+        print("⚠️ No font files found in 'fonts' directory")
+else:
+    print("⚠️ 'fonts' directory does not exist")
+# =================================================
 
 app = FastAPI(title="PDF Converter")
 app.add_middleware(
@@ -45,6 +62,21 @@ def clean_filename(name: str) -> str:
     return re.sub(r"[^\w\-\.]+", "_", name.strip(), flags=re.UNICODE) or "QuestionBank"
 
 def build_html(data: List[Section], title: str = "Question Bank") -> str:
+    # Generate font-face CSS if font exists
+    font_face_css = ""
+    body_font = "sans-serif"
+    
+    if HINDI_FONT_PATH and HINDI_FONT_PATH.exists():
+        font_face_css = f"""
+        @font-face {{
+            font-family: "CustomFont";
+            src: url("{HINDI_FONT_PATH.as_uri()}");
+            font-weight: normal;
+            font-style: normal;
+        }}
+        """
+        body_font = '"CustomFont", sans-serif'
+    
     sections_html = []
     for s_idx, section in enumerate(data):
         topic_blocks = []
@@ -73,10 +105,18 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
     <html>
     <head><meta charset="utf-8">
     <style>
+        {font_face_css}
+        
         @page {{ size: A4; margin: 16mm 14mm 18mm 14mm;
                 @bottom-center {{ content: "Page " counter(page) " / " counter(pages); font-size: 9px; color: #667085; }} }}
         * {{ box-sizing: border-box; }}
-        body {{ margin: 0; font-family: sans-serif; color: #101828; font-size: 12px; line-height: 1.45; }}
+        body {{ 
+            margin: 0; 
+            font-family: {body_font}; 
+            color: #101828; 
+            font-size: 12px; 
+            line-height: 1.45; 
+        }}
         .cover {{ border: 1px solid #E4E7EC; border-radius: 14px; padding: 28px; margin-bottom: 18px; background: #F8FAFC; }}
         .cover h1 {{ margin: 0 0 8px 0; font-size: 26px; }}
         .section {{ margin-bottom: 18px; }}
@@ -98,6 +138,7 @@ def build_html(data: List[Section], title: str = "Question Bank") -> str:
     </html>
     """
 
+    
 # Global font config
 font_config = FontConfiguration()
 
