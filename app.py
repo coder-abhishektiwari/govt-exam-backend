@@ -349,33 +349,6 @@ async def delete_paper_endpoint(paper_id: str):
 async def get_announcements():
     """Get ticker announcements"""
     data = load_data_file(ANNOUNCEMENTS_FILE)
-    # Fallback to hardcoded data if file doesn't exist
-    if not data or not data.get("announcements"):
-        data = {
-            "announcements": [
-                {
-                    "id": "up-police-2026",
-                    "title": "UP Police Constable 2026",
-                    "description": "OMR written examination scheduled on June 8, 9, and 10, 2026. Final admit cards available now.",
-                    "icon": "⚠️",
-                    "link": "#"
-                },
-                {
-                    "id": "state-civil-services",
-                    "title": "State Civil Services Hub",
-                    "description": "Last-minute high-yield crash course revisions compiled for downstream modules.",
-                    "icon": "📢",
-                    "link": "#"
-                },
-                {
-                    "id": "system-check",
-                    "title": "System Check Notice",
-                    "description": "Server backups are active. All daily high-speed study pipelines remain operational.",
-                    "icon": "⚡",
-                    "link": "#"
-                }
-            ]
-        }
     return data
 
 
@@ -383,40 +356,6 @@ async def get_announcements():
 async def get_bulletins():
     """Get official bulletins"""
     data = load_data_file(BULLETINS_FILE)
-    # Fallback to hardcoded data if file doesn't exist
-    if not data or not data.get("bulletins"):
-        data = {
-            "bulletins": [
-                {
-                    "id": "bulletin-1",
-                    "date": "June 05, 2026",
-                    "title": "Advisory against exam malpractice, paper distribution networks, and solver gangs released by executive board.",
-                    "link": "#",
-                    "is_new": True
-                },
-                {
-                    "id": "bulletin-2",
-                    "date": "June 04, 2026",
-                    "title": "Direct operational link activated for downloading candidate admit slips across core zones.",
-                    "link": "#",
-                    "is_new": True
-                },
-                {
-                    "id": "bulletin-3",
-                    "date": "May 28, 2026",
-                    "title": "Local administration sets up dedicated helpdesks at railway stations and bus terminals for traveling aspirants.",
-                    "link": "#",
-                    "is_new": False
-                },
-                {
-                    "id": "bulletin-4",
-                    "date": "May 07, 2026",
-                    "title": "Final answer key matrices published for upstream Sub-Inspector administrative examinations.",
-                    "link": "#",
-                    "is_new": False
-                }
-            ]
-        }
     return data
 
 
@@ -424,32 +363,6 @@ async def get_bulletins():
 async def get_analytics():
     """Get system analytics metrics"""
     data = load_data_file(ANALYTICS_FILE)
-    # Fallback to hardcoded data if file doesn't exist
-    if not data or not data.get("metrics"):
-        data = {
-            "metrics": [
-                {
-                    "label": "32,679",
-                    "description": "Monitored Open Posts",
-                    "value": "posts"
-                },
-                {
-                    "label": "2.4M+",
-                    "description": "Served Candidates",
-                    "value": "candidates"
-                },
-                {
-                    "label": "100%",
-                    "description": "Verified Content",
-                    "value": "verified"
-                },
-                {
-                    "label": "0.5ms",
-                    "description": "DB Delivery Latency",
-                    "value": "latency"
-                }
-            ]
-        }
     return data
 
 
@@ -475,3 +388,12 @@ async def update_analytics(data: Dict):
     if save_data_file(ANALYTICS_FILE, data):
         return {"status": "success", "message": "Analytics updated"}
     return JSONResponse(status_code=500, content={"error": "Failed to save analytics"})
+
+@app.post("/feedback")
+async def feedback(data: Dict):
+    """Create new feedback"""
+    try:
+        print(f"New feedback received: {data}")
+        return {"status": "success", "message": "Feedback received"}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
