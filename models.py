@@ -57,3 +57,23 @@ class AnalyticsMetric(BaseModel):
     label: str
     value: str
     description: str
+
+class QuizQuestion(BaseModel):
+    id: str
+    q: str
+    options: List[str]
+    answer: int
+    explanation: str
+
+class QuizTopic(BaseModel):
+    id: str
+    name: str
+    icon: str
+    color: str
+    questions: List[QuizQuestion]
+
+class DailyQuizFile(BaseModel):
+    daily_quizes: List[QuizTopic]
+
+class QuizTopicsResponse(BaseModel):
+    topics: List[QuizTopic]

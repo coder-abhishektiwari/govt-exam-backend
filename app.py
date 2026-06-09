@@ -12,9 +12,8 @@ from datetime import datetime
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
 from config import CACHE_DIR, MAX_CACHE_FILES, ANNOUNCEMENTS_FILE, BULLETINS_FILE, ANALYTICS_FILE
-from models import PDFGenerationRequest, QuestionPaper, Section, Announcement, Bulletin, AnalyticsMetric
+from models import PDFGenerationRequest, QuestionPaper, Section, Announcement, Bulletin, AnalyticsMetric, DailyQuizResponse, QuizCategory
 from paper_repository import paper_repository
-
 app = FastAPI(title="Question Paper PDF Generator")
 
 app.add_middleware(
@@ -397,3 +396,27 @@ async def feedback(data: Dict):
         return {"status": "success", "message": "Feedback received"}
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+def load_quiz_file() -> DailyQuizFile:
+    if not DAILY_QUIZ_FILE.exists():
+        raise HTTPException(status_code=404, detail="daily_quiz.json not found")
+
+    with open(DAILY_QUIZ_FILE, "r", encoding="utf-8") as f:
+        raw = json.load(f)
+
+    return DailyQuizFile(**raw)
+
+
+@app.get("/quiz-topics", response_model=QuizTopicsResponse)
+def get_quiz_topics():
+    data = load_quiz_file()
+    return {"topics": data.daily_quizes}
+
+@app.get("/quiz-topics/{topic_id}", response_model=QuizTopic)
+def get_quiz_topic(topic_id: str):
+    data = load_quiz_file()
+    for topic in data.daily_quizes:
+        if topic.id == topic_id:
+            return topic
+    raise HTTPException(status_code=404, detail="Quiz topic not found")
