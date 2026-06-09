@@ -10,6 +10,7 @@
     "negativeMarking": 0.5,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/ssc_cgl.json",
     "questions": [],
     "sections": [
       {
@@ -56,6 +57,7 @@
     "negativeMarking": 0.5,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/ssc_chsl.json",
     "questions": [],
     "sections": [
       {
@@ -99,6 +101,7 @@
     "negativeMarking": 1,
     "passingMarks": 36,
     "layoutType": "MULTI_SESSION",
+    "path": "question_papers/ssc_mts.json",
     "questions": [],
     "sections": [
       {
@@ -153,6 +156,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 32,
     "layoutType": "STANDARD",
+    "path": "question_papers/ssc_gd.json",
     "questions": [],
     "sections": [
       {
@@ -201,6 +205,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 80,
     "layoutType": "STANDARD",
+    "path": "question_papers/ssc_cpo.json",
     "questions": [],
     "sections": [
       {
@@ -245,6 +250,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 40,
     "layoutType": "SECTIONAL_LOCK",
+    "path": "question_papers/bank_clerk.json",
     "questions": [],
     "sections": [
       {
@@ -287,6 +293,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 40,
     "layoutType": "SECTIONAL_LOCK",
+    "path": "question_papers/bank_po.json",
     "questions": [],
     "sections": [
       {
@@ -329,6 +336,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 80,
     "layoutType": "SECTIONAL_LOCK",
+    "path": "question_papers/rbi_grade_b.json",
     "questions": [],
     "sections": [
       {
@@ -374,6 +382,7 @@
     "negativeMarking": 0.33,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/railway_ntpc.json",
     "questions": [],
     "sections": [
       {
@@ -416,6 +425,7 @@
     "negativeMarking": 0.33,
     "passingMarks": 36,
     "layoutType": "STANDARD",
+    "path": "question_papers/railway_group_d.json",
     "questions": [],
     "sections": [
       {
@@ -458,6 +468,7 @@
     "negativeMarking": 0.33,
     "passingMarks": 30,
     "layoutType": "STANDARD",
+    "path": "question_papers/railway_alp.json",
     "questions": [],
     "sections": [
       {
@@ -500,6 +511,7 @@
     "negativeMarking": 0.67,
     "passingMarks": 33,
     "layoutType": "STANDARD",
+    "path": "question_papers/upsc_prelims.json",
     "questions": [],
     "sections": [
       {
@@ -557,6 +569,7 @@
     "negativeMarking": 0.33,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/state_psc.json",
     "questions": [],
     "sections": [
       {
@@ -624,6 +637,7 @@
     "negativeMarking": 0,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/police_constable.json",
     "questions": [],
     "sections": [
       {
@@ -679,6 +693,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/police_si.json",
     "questions": [],
     "sections": [
       {
@@ -731,6 +746,7 @@
     "negativeMarking": 0,
     "passingMarks": 60,
     "layoutType": "STANDARD",
+    "path": "question_papers/ctet.json",
     "questions": [],
     "sections": [
       {
@@ -789,6 +805,7 @@
     "negativeMarking": 0,
     "passingMarks": 16,
     "layoutType": "STANDARD",
+    "path": "question_papers/ugc_net.json",
     "questions": [],
     "sections": [
       {
@@ -841,6 +858,7 @@
     "negativeMarking": 0.5,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/agniveer.json",
     "questions": [],
     "sections": [
       {
@@ -886,6 +904,7 @@
     "negativeMarking": 1,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/afcat.json",
     "questions": [],
     "sections": [
       {
@@ -928,6 +947,7 @@
     "negativeMarking": 0.66,
     "passingMarks": 25,
     "layoutType": "TECH_SPLIT",
+    "path": "question_papers/gate.json",
     "questions": [],
     "sections": [
       {
@@ -970,6 +990,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 80,
     "layoutType": "TECH_SPLIT",
+    "path": "question_papers/ssc_je.json",
     "questions": [],
     "sections": [
       {
@@ -1012,6 +1033,7 @@
     "negativeMarking": 0.33,
     "passingMarks": 35,
     "layoutType": "PASSAGE_SPLIT",
+    "path": "question_papers/pcs_j.json",
     "questions": [],
     "sections": [
       {
@@ -1063,6 +1085,7 @@
     "negativeMarking": 0.33,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/norcet.json",
     "questions": [],
     "sections": [
       {
@@ -1107,6 +1130,7 @@
     "negativeMarking": 0.25,
     "passingMarks": 40,
     "layoutType": "STANDARD",
+    "path": "question_papers/group_cd.json",
     "questions": [],
     "sections": [
       {
