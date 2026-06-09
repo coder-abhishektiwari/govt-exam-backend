@@ -453,7 +453,7 @@ async def list_all_mock_tests():
     return index_data
 
 
-@app.get("/mock-test/{paper_id}")
+@app.get("/mock-test/{paper_id}", response_model=MockTestSchema) # <-- Yeh response_model strict validation lagata hai!
 async def get_individual_mock_test(paper_id: str):
     """
     Safely loads individual question files using configurations 
