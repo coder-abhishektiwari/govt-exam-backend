@@ -90,7 +90,7 @@ class MockTestSchema(BaseModel):
     description: str
     duration: int
     total_questions: int
-    total_marks: float  # float rakha hai kyunki negativeMarking/marks decimals mein ho sakte hain
+    total_marks: float  
     negativeMarking: float
     passingMarks: float
     category: str

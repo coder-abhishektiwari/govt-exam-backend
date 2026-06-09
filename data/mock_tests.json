@@ -1,0 +1,388 @@
+[
+  {
+    "id": "ssc_cgl",
+    "name": "SSC CGL Tier 1",
+    "basePattern": "SSC",
+    "difficulty": "hard",
+    "layoutType": "STANDARD",
+    "totalDuration": 60,
+    "negativeMarking": 0.50,
+    "path": "question_papers/ssc_cgl.json",
+    "sections": { "math": 25, "reasoning": 25, "english": 25, "gk": 25 },
+    "coveredExams": [
+      "SSC CGL Tier 1", "Intelligence Bureau (IB ACIO)", "ICAR Assistant", 
+      "CSS Assistant Section Officer", "MEA Assistant", "Income Tax Inspector Exam", 
+      "Central Excise Inspector", "CBI Sub Inspector", "ED Assistant Enforcement Officer"
+    ]
+  },
+  {
+    "id": "ssc_chsl",
+    "name": "SSC CHSL Tier 1",
+    "basePattern": "SSC",
+    "difficulty": "medium",
+    "layoutType": "STANDARD",
+    "totalDuration": 60,
+    "negativeMarking": 0.50,
+    "path": "question_papers/ssc_chsl.json",
+    "sections": { "math": 25, "reasoning": 25, "english": 25, "gk": 25 },
+    "coveredExams": [
+      "SSC CHSL", "Data Entry Operator (DEO)", "Lower Division Clerk (LDC)", 
+      "Junior Secretariat Assistant (JSA)", "Postal Assistant", "Sorting Assistant"
+    ]
+  },
+  {
+    "id": "ssc_mts",
+    "name": "SSC MTS",
+    "basePattern": "SSC",
+    "difficulty": "easy",
+    "layoutType": "MULTI_SESSION",
+    "totalDuration": 90,
+    "negativeMarking": 1.00, 
+    "path": "question_papers/ssc_mts.json",
+    "sections": { "math": 20, "reasoning": 20, "english": 25, "gk": 25 },
+    "coveredExams": [
+      "SSC MTS", "Havaldar (CBIC & CBN)", "Multi Tasking Staff Regional", 
+      "Supreme Court Law Clerk", "Income Tax MTS"
+    ]
+  },
+  {
+    "id": "ssc_gd",
+    "name": "SSC GD",
+    "basePattern": "SSC",
+    "difficulty": "easy",
+    "layoutType": "STANDARD",
+    "totalDuration": 60,
+    "negativeMarking": 0.25,
+    "path": "question_papers/ssc_gd.json",
+    "sections": { "math": 20, "reasoning": 20, "english": 20, "gk": 20 },
+    "coveredExams": [
+      "SSC GD", "BSF Constable", "CRPF Constable", "ITBP Constable", 
+      "CISF Constable", "SSB Constable", "NIA Constable", "SSF Constable", 
+      "Assam Rifles Rifleman", "RPF Constable", "Sashastra Seema Bal GD"
+    ]
+  },
+  {
+    "id": "ssc_cpo",
+    "name": "SSC CPO",
+    "basePattern": "SSC",
+    "difficulty": "hard",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 0.25,
+    "path": "question_papers/ssc_cpo.json",
+    "sections": { "math": 50, "reasoning": 50, "english": 50, "gk": 50 },
+    "coveredExams": [
+      "SSC CPO", "Delhi Police SI", "CAPF SI", "CISF Sub Inspector", 
+      "BSF Sub Inspector", "ITBP Sub Inspector", "CRPF Sub Inspector"
+    ]
+  },
+  {
+    "id": "bank_clerk",
+    "name": "Bank Clerk",
+    "basePattern": "BANKING",
+    "difficulty": "medium",
+    "layoutType": "SECTIONAL_LOCK",
+    "totalDuration": 60,
+    "negativeMarking": 0.25,
+    "path": "question_papers/bank_clerk.json",
+    "sections": { "quant": 35, "reasoning": 35, "english": 30 },
+    "coveredExams": [
+      "SBI Clerk", "IBPS Clerk", "RRB Office Assistant", "RBI Assistant", 
+      "IDBI Executive", "Nainital Bank Clerk", "South Indian Bank Clerk", 
+      "Federal Bank Clerk", "Co-operative Bank Clerk", "Canara Bank Clerk"
+    ]
+  },
+  {
+    "id": "bank_po",
+    "name": "Bank PO",
+    "basePattern": "BANKING",
+    "difficulty": "hard",
+    "layoutType": "SECTIONAL_LOCK",
+    "totalDuration": 60,
+    "negativeMarking": 0.25,
+    "path": "question_papers/bank_po.json",
+    "sections": { "quant": 35, "reasoning": 35, "english": 30 },
+    "coveredExams": [
+      "SBI PO", "IBPS PO", "RRB Officer Scale 1", "IDBI Assistant Manager", 
+      "IPPB Officer Scale I", "Karnataka Bank PO", "Federal Bank PO", 
+      "ECGC PO", "DICGC Officer Grade A", "J&K Bank PO"
+    ]
+  },
+  {
+    "id": "rbi_grade_b",
+    "name": "RBI Grade B",
+    "basePattern": "BANKING",
+    "difficulty": "expert",
+    "layoutType": "SECTIONAL_LOCK",
+    "totalDuration": 120,
+    "negativeMarking": 0.25,
+    "path": "question_papers/rbi_grade_b.json",
+    "sections": { "quant": 30, "reasoning": 60, "english": 30, "current_affairs": 80 },
+    "coveredExams": [
+      "RBI Grade B General", "SEBI Grade A Officer", "NABARD Grade A Manager", 
+      "IFSCA Officer Grade A", "EXIM Bank Management Trainee", "NHB Assistant Manager", 
+      "IRDAI Assistant Manager", "SIDBI Assistant Manager"
+    ]
+  },
+  {
+    "id": "railway_ntpc",
+    "name": "RRB NTPC",
+    "basePattern": "RAILWAY",
+    "difficulty": "medium",
+    "layoutType": "STANDARD",
+    "totalDuration": 90,
+    "negativeMarking": 0.33,
+    "path": "question_papers/railway_ntpc.json",
+    "sections": { "math": 30, "reasoning": 30, "gk": 40 },
+    "coveredExams": [
+      "RRB NTPC", "Commercial Apprentice", "Station Master", "Goods Guard", 
+      "Junior Accounts Assistant", "Senior Clerk Typist", "Traffic Assistant", 
+      "DMRC Non-Executive", "LMRC Train Operator", "NMRC Office Assistant"
+    ]
+  },
+  {
+    "id": "railway_group_d",
+    "name": "RRB Group D",
+    "basePattern": "RAILWAY",
+    "difficulty": "easy",
+    "layoutType": "STANDARD",
+    "totalDuration": 90,
+    "negativeMarking": 0.33,
+    "path": "question_papers/railway_group_d.json",
+    "sections": { "math": 25, "reasoning": 30, "science": 25, "current_affairs": 20 },
+    "coveredExams": [
+      "RRB Group D", "Track Maintainer Grade IV", "Helper/Assistant Pointsman", 
+      "Level 1 Posts Railway", "DFCCIL Multi Tasking Staff"
+    ]
+  },
+  {
+    "id": "railway_alp",
+    "name": "RRB ALP",
+    "basePattern": "RAILWAY",
+    "difficulty": "medium",
+    "layoutType": "STANDARD",
+    "totalDuration": 60,
+    "negativeMarking": 0.33,
+    "path": "question_papers/railway_alp.json",
+    "sections": { "math": 20, "reasoning": 25, "science": 20, "current_affairs": 10 },
+    "coveredExams": [
+      "RRB ALP", "Assistant Loco Pilot", "Railway Technician Grade 3", 
+      "Metro Rail Technician", "DFCCIL Junior Executive"
+    ]
+  },
+  {
+    "id": "upsc_prelims",
+    "name": "UPSC Prelims",
+    "basePattern": "UPSC",
+    "difficulty": "expert",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 0.67,
+    "path": "question_papers/upsc_prelims.json",
+    "sections": { "history": 15, "polity": 15, "geography": 15, "economy": 15, "environment": 15, "science": 10, "current_affairs": 15 },
+    "coveredExams": [
+      "UPSC CSE Prelims", "Indian Forest Service Prelims (IFoS)", 
+      "UPSC EPFO EO/AO", "UPSC APFC Exam", "UPSC CAPF AC Prelims"
+    ]
+  },
+  {
+    "id": "state_psc",
+    "name": "State PSC",
+    "basePattern": "UPSC",
+    "difficulty": "hard",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 0.33,
+    "path": "question_papers/state_psc.json",
+    "sections": { "history": 15, "polity": 15, "geography": 15, "economy": 15, "current_affairs": 15, "state_gk": 25 },
+    "coveredExams": [
+      "UPPCS (Uttar Pradesh)", "BPSC (Bihar)", "RAS (Rajasthan)", "MPPSC (Madhya Pradesh)", 
+      "HPSC (Haryana)", "UKPSC (Uttarakhand)", "CGPSC (Chhattisgarh)", "GPSC (Gujarat)", 
+      "JPSC (Jharkhand)", "OPSC (Odisha)", "WBCS (West Bengal)", "MPSC (Maharashtra)", 
+      "TNPSC (Tamil Nadu)", "APPSC (Andhra Pradesh)", "KPSC (Karnataka)", "PPSC (Punjab)", 
+      "GPSC (Goa)", "HPPSC (Himachal)", "JKPSC (Jammu & Kashmir)", "TPSC (Tripura)"
+    ]
+  },
+  {
+    "id": "police_constable",
+    "name": "Police Constable",
+    "basePattern": "POLICE",
+    "difficulty": "easy",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 0.00,
+    "path": "question_papers/police_constable.json",
+    "sections": { "math": 25, "reasoning": 25, "gk": 25, "current_affairs": 25 },
+    "coveredExams": [
+      "UP Police Constable", "Bihar Police Constable", "Punjab Police Constable", 
+      "Haryana Police Constable", "Delhi Police Constable", "MP Police Constable", 
+      "Rajasthan Police Constable", "West Bengal Police Constable", "Odisha Police Constable", 
+      "Maharashtra Police Constable", "Gujarat Police Lokrakshak", "Jharkhand Police Constable",
+      "Chhattisgarh Police Constable", "HP Police Constable", "Karnataka Police Constable",
+      "AP Police Constable", "Telangana Police Constable", "Assam Police Constable"
+    ]
+  },
+  {
+    "id": "police_si",
+    "name": "Police SI",
+    "basePattern": "POLICE",
+    "difficulty": "medium",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 0.25,
+    "path": "question_papers/police_si.json",
+    "sections": { "math": 25, "reasoning": 25, "gk": 25, "law": 25 },
+    "coveredExams": [
+      "UP Police SI", "Bihar Police SI", "Rajasthan Police SI", "MP Police Sub Inspector",
+      "Delhi Police Sub Inspector (Executive)", "Haryana Police SI", "Punjab Police SI",
+      "Maharashtra Police SI", "West Bengal Police SI", "Odisha Police SI", "Jharkhand Police SI",
+      "Chhattisgarh Police SI", "Karnataka Police SI", "Telangana Police SI", "AP Police SI"
+    ]
+  },
+  {
+    "id": "ctet",
+    "name": "CTET",
+    "basePattern": "TEACHING",
+    "difficulty": "medium",
+    "layoutType": "STANDARD",
+    "totalDuration": 150,
+    "negativeMarking": 0.00,
+    "path": "question_papers/ctet.json",
+    "sections": { "cdp": 30, "language1": 30, "language2": 30, "math": 30, "evs": 30 },
+    "coveredExams": [
+      "CTET Paper 1", "CTET Paper 2", "HTET (Haryana)", "REET (Rajasthan)", 
+      "UPTET (Uttar Pradesh)", "BTET (Bihar)", "MPTET (Madhya Pradesh)", 
+      "MAHATET (Maharashtra)", "TNTET (Tamil Nadu)", "TSTET (Telangana)", 
+      "APTET (Andhra Pradesh)", "UTET (Uttarakhand)", "OTET (Odisha)", 
+      "WB TET (West Bengal)", "KARTET (Karnataka)", "HP TET (Himachal)"
+    ]
+  },
+  {
+    "id": "ugc_net",
+    "name": "UGC NET",
+    "basePattern": "TEACHING",
+    "difficulty": "hard",
+    "layoutType": "STANDARD",
+    "totalDuration": 180,
+    "negativeMarking": 0.00,
+    "path": "question_papers/ugc_net.json",
+    "sections": { "teaching_aptitude": 10, "research_aptitude": 10, "reasoning": 10, "ict": 5, "current_affairs": 5 },
+    "coveredExams": [
+      "UGC NET Paper 1", "CSIR NET Part A", "MH-SET (Maharashtra)", "KSET (Karnataka)", 
+      "WBSET (West Bengal)", "GSET (Gujarat)", "APSET (Andhra Pradesh)", "JKSET (Jammu)", 
+      "MP SET (Madhya Pradesh)", "HP SET (Himachal)"
+    ]
+  },
+  {
+    "id": "agniveer",
+    "name": "Agniveer",
+    "basePattern": "DEFENSE",
+    "difficulty": "medium",
+    "layoutType": "STANDARD",
+    "totalDuration": 60,
+    "negativeMarking": 0.50,
+    "path": "question_papers/agniveer.json",
+    "sections": { "math": 25, "science": 25, "reasoning": 25, "gk": 25 },
+    "coveredExams": [
+      "Army Agniveer GD", "Army Agniveer Clerk", "Army Agniveer Technical", 
+      "Navy SSR Agniveer", "Navy MR Agniveer", "Air Force Agniveer Vayu Science", 
+      "Air Force Agniveer Non-Science", "Indian Coast Guard Navik DB/GD"
+    ]
+  },
+  {
+    "id": "afcat",
+    "name": "AFCAT",
+    "basePattern": "DEFENSE",
+    "difficulty": "hard",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 1.00,
+    "path": "question_papers/afcat.json",
+    "sections": { "english": 25, "reasoning": 25, "military_aptitude": 25, "gk": 25 },
+    "coveredExams": [
+      "AFCAT Entry", "NDA National Defence Academy", "CDS Combined Defence Services", 
+      "Indian Navy INET", "Territorial Army Officer"
+    ]
+  },
+  {
+    "id": "gate",
+    "name": "GATE",
+    "basePattern": "ENGINEERING",
+    "difficulty": "expert",
+    "layoutType": "TECH_SPLIT",
+    "totalDuration": 180,
+    "negativeMarking": 0.66,
+    "path": "question_papers/gate.json",
+    "sections": { "aptitude": 15, "engineering_math": 15, "technical_subject": 70 },
+    "coveredExams": [
+      "GATE CSE", "GATE ECE", "GATE ME", "GATE EE", "GATE CE", 
+      "BARC OCES Trainee Scientist", "ISRO Scientist Engineer", 
+      "DRDO Scientist B Entry", "NPCIL Executive Trainee", "IOCL Graduate Engineer"
+    ]
+  },
+  {
+    "id": "ssc_je",
+    "name": "SSC JE",
+    "basePattern": "ENGINEERING",
+    "difficulty": "hard",
+    "layoutType": "TECH_SPLIT",
+    "totalDuration": 120,
+    "negativeMarking": 0.25,
+    "path": "question_papers/ssc_je.json",
+    "sections": { "reasoning": 50, "gk": 50, "technical_subject": 100 },
+    "coveredExams": [
+      "SSC JE Civil", "SSC JE Electrical", "SSC JE Mechanical", "RRB JE (Junior Engineer)", 
+      "UPPCL JE", "DMRC JE", "State PSC AE (Assistant Engineer)", "State PSC JE", 
+      "PGCIL Diploma Trainee", "vizag Steel MT"
+    ]
+  },
+  {
+    "id": "pcs_j",
+    "name": "Judiciary",
+    "basePattern": "LAW",
+    "difficulty": "expert",
+    "layoutType": "PASSAGE_SPLIT",
+    "totalDuration": 120,
+    "negativeMarking": 0.33,
+    "path": "question_papers/pcs_j.json",
+    "sections": { "constitution": 20, "ipc": 20, "crpc": 20, "cpc": 20, "evidence": 20 },
+    "coveredExams": [
+      "PCS J (UP Civil Judge)", "Bihar Judiciary Exam", "Delhi Judicial Services (DJS)", 
+      "Rajasthan Judicial Services (RJS)", "MP Judiciary (MP PJ)", "CLAT PG", 
+      "AILET PG", "SEBI Officer Grade A Law", "IBPS Law Officer Scale I"
+    ]
+  },
+  {
+    "id": "norcet",
+    "name": "NORCET",
+    "basePattern": "MEDICAL",
+    "difficulty": "hard",
+    "layoutType": "STANDARD",
+    "totalDuration": 180,
+    "negativeMarking": 0.33,
+    "path": "question_papers/norcet.json",
+    "sections": { "nursing": 70, "gk": 10, "aptitude": 10, "reasoning": 10 },
+    "coveredExams": [
+      "AIIMS NORCET Nurse", "RRB Staff Nurse Exam", "ESIC Staff Nurse", 
+      "State CHO (Community Health Officer)", "SGPGI Nursing Officer", 
+      "JIPMER Nursing Officer", "GMCH Staff Nurse"
+    ]
+  },
+  {
+    "id": "group_cd",
+    "name": "Group C/D",
+    "basePattern": "GROUP_CD",
+    "difficulty": "easy",
+    "layoutType": "STANDARD",
+    "totalDuration": 120,
+    "negativeMarking": 0.25,
+    "path": "question_papers/group_cd.json",
+    "sections": { "math": 25, "reasoning": 25, "gk": 25, "computer": 25 },
+    "coveredExams": [
+      "UPSSSC PET", "HSSC CET (Haryana)", "RSMSSB CET (Rajasthan)", "UP Lekhpal", 
+      "MP Patwari", "Bihar Revenue Employee", "BSSC Inter Level Exam", "UKSSSC VDO", 
+      "PSSSB Clerk", "OSSC Combined Recruitment", "WBSSC Clerkship", "JKSSB Graduate Level",
+      "High Court Clerk Exam", "District Court Stenographer", "RO/ARO Samiksha Adhikari"
+    ]
+  }
+]

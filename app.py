@@ -11,7 +11,7 @@ from datetime import datetime
 
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
-from config import CACHE_DIR, MAX_CACHE_FILES, ANNOUNCEMENTS_FILE, BULLETINS_FILE, ANALYTICS_FILE, DAILY_QUIZ_FILE
+from config import CACHE_DIR, MAX_CACHE_FILES, ANNOUNCEMENTS_FILE, BULLETINS_FILE, ANALYTICS_FILE, DAILY_QUIZ_FILE, MOCK_INDEX_FILE, MOCK_PAPERS_DIR
 from models import PDFGenerationRequest, QuestionPaper, Section, Announcement, Bulletin, AnalyticsMetric, QuizQuestion, DailyQuiz, QuizTopicsResponse, QuizTopic
 from paper_repository import paper_repository
 app = FastAPI(title="Question Paper PDF Generator")
@@ -420,7 +420,6 @@ def load_quiz_file() -> DailyQuiz:
 
     return DailyQuiz(**raw)
 
-
 @app.get("/quiz-topics", response_model=QuizTopicsResponse)
 def get_quiz_topics():
     data = load_quiz_file()
@@ -433,3 +432,71 @@ def get_quiz_topic(topic_id: str):
         if topic.id == topic_id:
             return topic
     raise HTTPException(status_code=404, detail="Quiz topic not found")
+
+
+# ============ MOCK TEST ENGINE ENDPOINTS ============
+
+@app.get("/mock-tests")
+async def list_all_mock_tests():
+    """
+    1. Yeh endpoint saare available mock tests ki index list load karega 
+    taaki frontend par saare cards (CGL, Bank, Police) render ho sakein.
+    """
+    if not MOCK_INDEX_FILE.exists():
+        raise HTTPException(
+            status_code=404, 
+            detail="Mock tests index master file not found on server."
+        )
+    
+    # Hamara purana generic load_data_file use kar rahe hain
+    index_data = load_data_file(MOCK_INDEX_FILE)
+    return index_data
+
+
+@app.get("/mock-test/{paper_id}")
+async def get_individual_mock_test(paper_id: str):
+    """
+    2. Yeh dynamic endpoint index file se us 'paper_id' ka path nikalega
+    aur us individual JSON file ko padh kar uske questions return karega.
+    """
+    if not MOCK_INDEX_FILE.exists():
+        raise HTTPException(status_code=404, detail="Master index not found.")
+        
+    index_data = load_data_file(MOCK_INDEX_FILE)
+    
+    # 1. Master list me se us paper_id ka configuration data dhoondho
+    target_paper_meta = None
+    for paper in index_data:
+        if paper.get("id") == paper_id:
+            target_paper_meta = paper
+            break
+            
+    if not target_paper_meta:
+        raise HTTPException(
+            status_code=404, 
+            detail=f"Mock test with ID '{paper_id}' not found in index."
+        )
+        
+    # 2. Us configuration se uski actual json file ka path nikalo
+    # Jaise: target_paper_meta["path"] -> "question_papers/ssc_cgl.json"
+    relative_path = target_paper_meta.get("path")
+    if not relative_path:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Path configuration missing for paper ID: {paper_id}"
+        )
+        
+    # 3. Path ko secure clean tarike se server filesystem ke sath merge karo
+    # Taaki directory traversal attack (../) na ho sake
+    file_name = Path(relative_path).name # Isse sirf 'ssc_cgl.json' milega
+    actual_file_path = MOCK_PAPERS_DIR / file_name
+    
+    # 4. Ab actual individual file ko load karke return kar do
+    if not actual_file_path.exists():
+        raise HTTPException(
+            status_code=404, 
+            detail=f"The question bank file '{file_name}' does not exist on the server."
+        )
+        
+    paper_questions_data = load_data_file(actual_file_path)
+    return paper_questions_data
