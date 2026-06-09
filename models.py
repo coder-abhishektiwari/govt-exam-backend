@@ -77,3 +77,25 @@ class DailyQuiz(BaseModel):
 
 class QuizTopicsResponse(BaseModel):
     topics: List[QuizTopic]
+
+class MockQuestionSchema(BaseModel):
+    q: str
+    options: List[str]
+    answer: int
+    explanation: Optional[str] = None
+
+class MockTestSchema(BaseModel):
+    id: str
+    title: str
+    description: str
+    duration: int
+    total_questions: int
+    total_marks: float  # float rakha hai kyunki negativeMarking/marks decimals mein ho sakte hain
+    negativeMarking: float
+    passingMarks: float
+    category: str
+    questions: List[MockQuestionSchema]
+
+# Main Response Model
+class MockTestsResponse(BaseModel):
+    mock_tests: List[MockTestSchema]
