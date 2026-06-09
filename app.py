@@ -456,47 +456,54 @@ async def list_all_mock_tests():
 @app.get("/mock-test/{paper_id}")
 async def get_individual_mock_test(paper_id: str):
     """
-    2. Yeh dynamic endpoint index file se us 'paper_id' ka path nikalega
-    aur us individual JSON file ko padh kar uske questions return karega.
+    Safely loads individual question files using configurations 
+    from config.py to ensure zero path collisions.
     """
+    # 1. Check if the master index exists to find the file mapping
     if not MOCK_INDEX_FILE.exists():
-        raise HTTPException(status_code=404, detail="Master index not found.")
+        raise HTTPException(
+            status_code=404, 
+            detail="Master index configuration file (mock_tests.json) not found."
+        )
         
     index_data = load_data_file(MOCK_INDEX_FILE)
     
-    # 1. Master list me se us paper_id ka configuration data dhoondho
+    # In case index_data is wrapped inside a dictionary like {"tests": [...]}
+    tests_list = index_data if isinstance(index_data, list) else index_data.get("tests", [])
+    
+    # 2. Search for the target paper configuration in your master index list
     target_paper_meta = None
-    for paper in index_data:
+    for paper in tests_list:
         if paper.get("id") == paper_id:
             target_paper_meta = paper
             break
             
-    if not target_paper_meta:
-        raise HTTPException(
-            status_code=404, 
-            detail=f"Mock test with ID '{paper_id}' not found in index."
-        )
-        
-    # 2. Us configuration se uski actual json file ka path nikalo
-    # Jaise: target_paper_meta["path"] -> "question_papers/ssc_cgl.json"
-    relative_path = target_paper_meta.get("path")
-    if not relative_path:
-        raise HTTPException(
-            status_code=500, 
-            detail=f"Path configuration missing for paper ID: {paper_id}"
-        )
-        
-    # 3. Path ko secure clean tarike se server filesystem ke sath merge karo
-    # Taaki directory traversal attack (../) na ho sake
-    file_name = Path(relative_path).name # Isse sirf 'ssc_cgl.json' milega
-    actual_file_path = MOCK_PAPERS_DIR / file_name
-    
-    # 4. Ab actual individual file ko load karke return kar do
+    # 3. Formulate the dynamic safe file resolution path
+    if target_paper_meta and target_paper_meta.get("path"):
+        # Extract just the filename (e.g., 'ssc_cgl.json') from the path string
+        file_name = Path(target_paper_meta["path"]).name
+        actual_file_path = MOCK_PAPERS_DIR / file_name
+    else:
+        # Fallback direct matching pattern if meta mapping isn't found
+        actual_file_path = MOCK_PAPERS_DIR / f"{paper_id}.json"
+
+    # 4. Strict assertion check to completely avoid 500 runtime execution breaks
     if not actual_file_path.exists():
         raise HTTPException(
             status_code=404, 
-            detail=f"The question bank file '{file_name}' does not exist on the server."
+            detail=f"Mock test questions file '{actual_file_path.name}' is missing in directory workspace."
         )
+
+    try:
+        paper_questions_data = load_data_file(actual_file_path)
+        if not paper_questions_data:
+            raise HTTPException(status_code=404, detail="File found but contains invalid or corrupted JSON data.")
+            
+        return paper_questions_data
         
-    paper_questions_data = load_data_file(actual_file_path)
-    return paper_questions_data
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error parsing paper structure layout: {str(e)}"
+        )
+
