@@ -88,6 +88,7 @@ class MockQuestionSchema(BaseModel):
     sectionId: Optional[str] = None
     specialty: Optional[str] = None
     passage: Optional[str] = None
+    examTag: Optional[str] = None
 
 # 2. Config schemas for Layout engines (Banking/GATE style features)
 class SectionConfigSchema(BaseModel):
