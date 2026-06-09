@@ -240,9 +240,22 @@ async def health_check():
 
 @app.get("/papers")
 async def list_papers():
-    """List all papers (fast - metadata only)"""
     metadata = get_all_papers_metadata()
-    return {"papers": metadata}
+
+    sectors = sorted(
+        list(
+            {
+                paper.get("sector")
+                for paper in metadata
+                if isinstance(paper, dict) and paper.get("sector")
+            }
+        )
+    )
+
+    return {
+        "papers": metadata,
+        "sectors": sectors
+    }
 
 @app.get("/paper/{paper_id}")
 async def get_paper(paper_id: str):
