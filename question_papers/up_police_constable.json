@@ -1,8 +1,8 @@
 {
-  "id": "up_police_2025",
-  "title": "UP Police Constable Crash Course 2025",
-  "display_name": "UP Police Constable 2025",
-  "filename": "UP-Police-Crash-Course",
+  "id": "up_police_constable",
+  "title": "UP Police Constable",
+  "display_name": "UP Police Constable",
+  "filename": "UP-Police",
   "subject": "Police Recruitment",
   "exam_board": "UPPRPB",
   "total_questions": 164,
