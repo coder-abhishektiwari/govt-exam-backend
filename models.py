@@ -72,7 +72,7 @@ class QuizTopic(BaseModel):
     color: str
     questions: List[QuizQuestion]
 
-class DailyQuizFile(BaseModel):
+class DailyQuiz(BaseModel):
     daily_quizes: List[QuizTopic]
 
 class QuizTopicsResponse(BaseModel):
