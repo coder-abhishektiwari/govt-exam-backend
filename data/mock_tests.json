@@ -1,388 +1,1151 @@
 [
   {
     "id": "ssc_cgl",
-    "name": "SSC CGL Tier 1",
-    "basePattern": "SSC",
-    "difficulty": "hard",
+    "title": "SSC CGL Tier 1",
+    "description": "Hard level SSC pattern mock test for SSC CGL Tier 1 and related graduate-level exams including IB ACIO, ICAR Assistant, CSS Assistant Section Officer, MEA Assistant, Income Tax Inspector, Central Excise Inspector, CBI Sub Inspector, and ED Assistant Enforcement Officer.",
+    "category": "SSC",
+    "duration": 60,
+    "total_questions": 100,
+    "total_marks": 100,
+    "negativeMarking": 0.5,
+    "passingMarks": 40,
     "layoutType": "STANDARD",
-    "totalDuration": 60,
-    "negativeMarking": 0.50,
-    "path": "question_papers/ssc_cgl.json",
-    "sections": { "math": 25, "reasoning": 25, "english": 25, "gk": 25 },
-    "coveredExams": [
-      "SSC CGL Tier 1", "Intelligence Bureau (IB ACIO)", "ICAR Assistant", 
-      "CSS Assistant Section Officer", "MEA Assistant", "Income Tax Inspector Exam", 
-      "Central Excise Inspector", "CBI Sub Inspector", "ED Assistant Enforcement Officer"
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "SSC CGL Tier 1",
+      "Intelligence Bureau (IB ACIO)",
+      "ICAR Assistant",
+      "CSS Assistant Section Officer",
+      "MEA Assistant",
+      "Income Tax Inspector Exam",
+      "Central Excise Inspector",
+      "CBI Sub Inspector",
+      "ED Assistant Enforcement Officer"
     ]
   },
   {
     "id": "ssc_chsl",
-    "name": "SSC CHSL Tier 1",
-    "basePattern": "SSC",
-    "difficulty": "medium",
+    "title": "SSC CHSL Tier 1",
+    "description": "Medium level SSC pattern mock test for SSC CHSL and related exams including Data Entry Operator (DEO), Lower Division Clerk (LDC), Junior Secretariat Assistant (JSA), Postal Assistant, and Sorting Assistant.",
+    "category": "SSC",
+    "duration": 60,
+    "total_questions": 100,
+    "total_marks": 100,
+    "negativeMarking": 0.5,
+    "passingMarks": 40,
     "layoutType": "STANDARD",
-    "totalDuration": 60,
-    "negativeMarking": 0.50,
-    "path": "question_papers/ssc_chsl.json",
-    "sections": { "math": 25, "reasoning": 25, "english": 25, "gk": 25 },
-    "coveredExams": [
-      "SSC CHSL", "Data Entry Operator (DEO)", "Lower Division Clerk (LDC)", 
-      "Junior Secretariat Assistant (JSA)", "Postal Assistant", "Sorting Assistant"
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "SSC CHSL",
+      "Data Entry Operator (DEO)",
+      "Lower Division Clerk (LDC)",
+      "Junior Secretariat Assistant (JSA)",
+      "Postal Assistant",
+      "Sorting Assistant"
     ]
   },
   {
     "id": "ssc_mts",
-    "name": "SSC MTS",
-    "basePattern": "SSC",
-    "difficulty": "easy",
+    "title": "SSC MTS",
+    "description": "Easy level SSC pattern multi-session mock test for SSC MTS and related exams including Havaldar (CBIC & CBN), Multi Tasking Staff Regional, Supreme Court Law Clerk, and Income Tax MTS.",
+    "category": "SSC",
+    "duration": 90,
+    "total_questions": 90,
+    "total_marks": 90,
+    "negativeMarking": 1,
+    "passingMarks": 36,
     "layoutType": "MULTI_SESSION",
-    "totalDuration": 90,
-    "negativeMarking": 1.00, 
-    "path": "question_papers/ssc_mts.json",
-    "sections": { "math": 20, "reasoning": 20, "english": 25, "gk": 25 },
-    "coveredExams": [
-      "SSC MTS", "Havaldar (CBIC & CBN)", "Multi Tasking Staff Regional", 
-      "Supreme Court Law Clerk", "Income Tax MTS"
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 20
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 20
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      }
+    ],
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Session 1",
+        "duration": 45
+      },
+      {
+        "id": 2,
+        "title": "Session 2",
+        "duration": 45
+      }
+    ],
+    "specialties": [
+      "SSC MTS",
+      "Havaldar (CBIC & CBN)",
+      "Multi Tasking Staff Regional",
+      "Supreme Court Law Clerk",
+      "Income Tax MTS"
     ]
   },
   {
     "id": "ssc_gd",
-    "name": "SSC GD",
-    "basePattern": "SSC",
-    "difficulty": "easy",
-    "layoutType": "STANDARD",
-    "totalDuration": 60,
+    "title": "SSC GD",
+    "description": "Easy level SSC pattern mock test for SSC GD and related constable exams including BSF Constable, CRPF Constable, ITBP Constable, CISF Constable, SSB Constable, NIA Constable, SSF Constable, Assam Rifles Rifleman, RPF Constable, and Sashastra Seema Bal GD.",
+    "category": "SSC",
+    "duration": 60,
+    "total_questions": 80,
+    "total_marks": 80,
     "negativeMarking": 0.25,
-    "path": "question_papers/ssc_gd.json",
-    "sections": { "math": 20, "reasoning": 20, "english": 20, "gk": 20 },
-    "coveredExams": [
-      "SSC GD", "BSF Constable", "CRPF Constable", "ITBP Constable", 
-      "CISF Constable", "SSB Constable", "NIA Constable", "SSF Constable", 
-      "Assam Rifles Rifleman", "RPF Constable", "Sashastra Seema Bal GD"
+    "passingMarks": 32,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 20
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 20
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 20
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 20
+      }
+    ],
+    "specialties": [
+      "SSC GD",
+      "BSF Constable",
+      "CRPF Constable",
+      "ITBP Constable",
+      "CISF Constable",
+      "SSB Constable",
+      "NIA Constable",
+      "SSF Constable",
+      "Assam Rifles Rifleman",
+      "RPF Constable",
+      "Sashastra Seema Bal GD"
     ]
   },
   {
     "id": "ssc_cpo",
-    "name": "SSC CPO",
-    "basePattern": "SSC",
-    "difficulty": "hard",
-    "layoutType": "STANDARD",
-    "totalDuration": 120,
+    "title": "SSC CPO",
+    "description": "Hard level SSC pattern mock test for SSC CPO and related Sub Inspector exams including Delhi Police SI, CAPF SI, CISF Sub Inspector, BSF Sub Inspector, ITBP Sub Inspector, and CRPF Sub Inspector.",
+    "category": "SSC",
+    "duration": 120,
+    "total_questions": 200,
+    "total_marks": 200,
     "negativeMarking": 0.25,
-    "path": "question_papers/ssc_cpo.json",
-    "sections": { "math": 50, "reasoning": 50, "english": 50, "gk": 50 },
-    "coveredExams": [
-      "SSC CPO", "Delhi Police SI", "CAPF SI", "CISF Sub Inspector", 
-      "BSF Sub Inspector", "ITBP Sub Inspector", "CRPF Sub Inspector"
+    "passingMarks": 80,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 50
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 50
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 50
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 50
+      }
+    ],
+    "specialties": [
+      "SSC CPO",
+      "Delhi Police SI",
+      "CAPF SI",
+      "CISF Sub Inspector",
+      "BSF Sub Inspector",
+      "ITBP Sub Inspector",
+      "CRPF Sub Inspector"
     ]
   },
   {
     "id": "bank_clerk",
-    "name": "Bank Clerk",
-    "basePattern": "BANKING",
-    "difficulty": "medium",
-    "layoutType": "SECTIONAL_LOCK",
-    "totalDuration": 60,
+    "title": "Bank Clerk",
+    "description": "Medium level Banking pattern mock test for Banking clerk exams including SBI Clerk, IBPS Clerk, RRB Office Assistant, RBI Assistant, IDBI Executive, Nainital Bank Clerk, South Indian Bank Clerk, Federal Bank Clerk, Co-operative Bank Clerk, and Canara Bank Clerk.",
+    "category": "BANKING",
+    "duration": 60,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.25,
-    "path": "question_papers/bank_clerk.json",
-    "sections": { "quant": 35, "reasoning": 35, "english": 30 },
-    "coveredExams": [
-      "SBI Clerk", "IBPS Clerk", "RRB Office Assistant", "RBI Assistant", 
-      "IDBI Executive", "Nainital Bank Clerk", "South Indian Bank Clerk", 
-      "Federal Bank Clerk", "Co-operative Bank Clerk", "Canara Bank Clerk"
+    "passingMarks": 40,
+    "layoutType": "SECTIONAL_LOCK",
+    "questions": [],
+    "sections": [
+      {
+        "id": "quant",
+        "title": "Quant",
+        "questionCount": 35
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 35
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 30
+      }
+    ],
+    "specialties": [
+      "SBI Clerk",
+      "IBPS Clerk",
+      "RRB Office Assistant",
+      "RBI Assistant",
+      "IDBI Executive",
+      "Nainital Bank Clerk",
+      "South Indian Bank Clerk",
+      "Federal Bank Clerk",
+      "Co-operative Bank Clerk",
+      "Canara Bank Clerk"
     ]
   },
   {
     "id": "bank_po",
-    "name": "Bank PO",
-    "basePattern": "BANKING",
-    "difficulty": "hard",
-    "layoutType": "SECTIONAL_LOCK",
-    "totalDuration": 60,
+    "title": "Bank PO",
+    "description": "Hard level Banking pattern mock test for Banking PO exams including SBI PO, IBPS PO, RRB Officer Scale 1, IDBI Assistant Manager, IPPB Officer Scale I, Karnataka Bank PO, Federal Bank PO, ECGC PO, DICGC Officer Grade A, and J&K Bank PO.",
+    "category": "BANKING",
+    "duration": 60,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.25,
-    "path": "question_papers/bank_po.json",
-    "sections": { "quant": 35, "reasoning": 35, "english": 30 },
-    "coveredExams": [
-      "SBI PO", "IBPS PO", "RRB Officer Scale 1", "IDBI Assistant Manager", 
-      "IPPB Officer Scale I", "Karnataka Bank PO", "Federal Bank PO", 
-      "ECGC PO", "DICGC Officer Grade A", "J&K Bank PO"
+    "passingMarks": 40,
+    "layoutType": "SECTIONAL_LOCK",
+    "questions": [],
+    "sections": [
+      {
+        "id": "quant",
+        "title": "Quant",
+        "questionCount": 35
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 35
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 30
+      }
+    ],
+    "specialties": [
+      "SBI PO",
+      "IBPS PO",
+      "RRB Officer Scale 1",
+      "IDBI Assistant Manager",
+      "IPPB Officer Scale I",
+      "Karnataka Bank PO",
+      "Federal Bank PO",
+      "ECGC PO",
+      "DICGC Officer Grade A",
+      "J&K Bank PO"
     ]
   },
   {
     "id": "rbi_grade_b",
-    "name": "RBI Grade B",
-    "basePattern": "BANKING",
-    "difficulty": "expert",
-    "layoutType": "SECTIONAL_LOCK",
-    "totalDuration": 120,
+    "title": "RBI Grade B",
+    "description": "Expert level Banking pattern mock test for Grade B exams including RBI Grade B General, SEBI Grade A Officer, NABARD Grade A Manager, IFSCA Officer Grade A, EXIM Bank Management Trainee, NHB Assistant Manager, IRDAI Assistant Manager, and SIDBI Assistant Manager.",
+    "category": "BANKING",
+    "duration": 120,
+    "total_questions": 200,
+    "total_marks": 200,
     "negativeMarking": 0.25,
-    "path": "question_papers/rbi_grade_b.json",
-    "sections": { "quant": 30, "reasoning": 60, "english": 30, "current_affairs": 80 },
-    "coveredExams": [
-      "RBI Grade B General", "SEBI Grade A Officer", "NABARD Grade A Manager", 
-      "IFSCA Officer Grade A", "EXIM Bank Management Trainee", "NHB Assistant Manager", 
-      "IRDAI Assistant Manager", "SIDBI Assistant Manager"
+    "passingMarks": 80,
+    "layoutType": "SECTIONAL_LOCK",
+    "questions": [],
+    "sections": [
+      {
+        "id": "quant",
+        "title": "Quant",
+        "questionCount": 30
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 60
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 30
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 80
+      }
+    ],
+    "specialties": [
+      "RBI Grade B General",
+      "SEBI Grade A Officer",
+      "NABARD Grade A Manager",
+      "IFSCA Officer Grade A",
+      "EXIM Bank Management Trainee",
+      "NHB Assistant Manager",
+      "IRDAI Assistant Manager",
+      "SIDBI Assistant Manager"
     ]
   },
   {
     "id": "railway_ntpc",
-    "name": "RRB NTPC",
-    "basePattern": "RAILWAY",
-    "difficulty": "medium",
-    "layoutType": "STANDARD",
-    "totalDuration": 90,
+    "title": "RRB NTPC",
+    "description": "Medium level Railway pattern mock test for Railway NTPC and related exams including Commercial Apprentice, Station Master, Goods Guard, Junior Accounts Assistant, Senior Clerk Typist, Traffic Assistant, DMRC Non-Executive, LMRC Train Operator, and NMRC Office Assistant.",
+    "category": "RAILWAY",
+    "duration": 90,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.33,
-    "path": "question_papers/railway_ntpc.json",
-    "sections": { "math": 30, "reasoning": 30, "gk": 40 },
-    "coveredExams": [
-      "RRB NTPC", "Commercial Apprentice", "Station Master", "Goods Guard", 
-      "Junior Accounts Assistant", "Senior Clerk Typist", "Traffic Assistant", 
-      "DMRC Non-Executive", "LMRC Train Operator", "NMRC Office Assistant"
+    "passingMarks": 40,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 30
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 30
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 40
+      }
+    ],
+    "specialties": [
+      "RRB NTPC",
+      "Commercial Apprentice",
+      "Station Master",
+      "Goods Guard",
+      "Junior Accounts Assistant",
+      "Senior Clerk Typist",
+      "Traffic Assistant",
+      "DMRC Non-Executive",
+      "LMRC Train Operator",
+      "NMRC Office Assistant"
     ]
   },
   {
     "id": "railway_group_d",
-    "name": "RRB Group D",
-    "basePattern": "RAILWAY",
-    "difficulty": "easy",
-    "layoutType": "STANDARD",
-    "totalDuration": 90,
+    "title": "RRB Group D",
+    "description": "Easy level Railway pattern mock test for Railway Group D and related exams including Track Maintainer Grade IV, Helper/Assistant Pointsman, Level 1 Posts Railway, and DFCCIL Multi Tasking Staff.",
+    "category": "RAILWAY",
+    "duration": 90,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.33,
-    "path": "question_papers/railway_group_d.json",
-    "sections": { "math": 25, "reasoning": 30, "science": 25, "current_affairs": 20 },
-    "coveredExams": [
-      "RRB Group D", "Track Maintainer Grade IV", "Helper/Assistant Pointsman", 
-      "Level 1 Posts Railway", "DFCCIL Multi Tasking Staff"
+    "passingMarks": 36,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 30
+      },
+      {
+        "id": "science",
+        "title": "Science",
+        "questionCount": 25
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 20
+      }
+    ],
+    "specialties": [
+      "RRB Group D",
+      "Track Maintainer Grade IV",
+      "Helper/Assistant Pointsman",
+      "Level 1 Posts Railway",
+      "DFCCIL Multi Tasking Staff"
     ]
   },
   {
     "id": "railway_alp",
-    "name": "RRB ALP",
-    "basePattern": "RAILWAY",
-    "difficulty": "medium",
-    "layoutType": "STANDARD",
-    "totalDuration": 60,
+    "title": "RRB ALP",
+    "description": "Medium level Railway pattern mock test for Railway Assistant Loco Pilot and related exams including Assistant Loco Pilot, Railway Technician Grade 3, Metro Rail Technician, and DFCCIL Junior Executive.",
+    "category": "RAILWAY",
+    "duration": 60,
+    "total_questions": 75,
+    "total_marks": 75,
     "negativeMarking": 0.33,
-    "path": "question_papers/railway_alp.json",
-    "sections": { "math": 20, "reasoning": 25, "science": 20, "current_affairs": 10 },
-    "coveredExams": [
-      "RRB ALP", "Assistant Loco Pilot", "Railway Technician Grade 3", 
-      "Metro Rail Technician", "DFCCIL Junior Executive"
+    "passingMarks": 30,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 20
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "science",
+        "title": "Science",
+        "questionCount": 20
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 10
+      }
+    ],
+    "specialties": [
+      "RRB ALP",
+      "Assistant Loco Pilot",
+      "Railway Technician Grade 3",
+      "Metro Rail Technician",
+      "DFCCIL Junior Executive"
     ]
   },
   {
     "id": "upsc_prelims",
-    "name": "UPSC Prelims",
-    "basePattern": "UPSC",
-    "difficulty": "expert",
-    "layoutType": "STANDARD",
-    "totalDuration": 120,
+    "title": "UPSC Prelims",
+    "description": "Expert level UPSC pattern mock test for UPSC CSE Prelims, Indian Forest Service Prelims (IFoS), UPSC EPFO EO/AO, UPSC APFC Exam, and UPSC CAPF AC Prelims.",
+    "category": "UPSC",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.67,
-    "path": "question_papers/upsc_prelims.json",
-    "sections": { "history": 15, "polity": 15, "geography": 15, "economy": 15, "environment": 15, "science": 10, "current_affairs": 15 },
-    "coveredExams": [
-      "UPSC CSE Prelims", "Indian Forest Service Prelims (IFoS)", 
-      "UPSC EPFO EO/AO", "UPSC APFC Exam", "UPSC CAPF AC Prelims"
+    "passingMarks": 33,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "history",
+        "title": "History",
+        "questionCount": 15
+      },
+      {
+        "id": "polity",
+        "title": "Polity",
+        "questionCount": 15
+      },
+      {
+        "id": "geography",
+        "title": "Geography",
+        "questionCount": 15
+      },
+      {
+        "id": "economy",
+        "title": "Economy",
+        "questionCount": 15
+      },
+      {
+        "id": "environment",
+        "title": "Environment",
+        "questionCount": 15
+      },
+      {
+        "id": "science",
+        "title": "Science",
+        "questionCount": 10
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 15
+      }
+    ],
+    "specialties": [
+      "UPSC CSE Prelims",
+      "Indian Forest Service Prelims (IFoS)",
+      "UPSC EPFO EO/AO",
+      "UPSC APFC Exam",
+      "UPSC CAPF AC Prelims"
     ]
   },
   {
     "id": "state_psc",
-    "name": "State PSC",
-    "basePattern": "UPSC",
-    "difficulty": "hard",
-    "layoutType": "STANDARD",
-    "totalDuration": 120,
+    "title": "State PSC",
+    "description": "Hard level UPSC pattern mock test for State PSC exams including UPPCS (Uttar Pradesh), BPSC (Bihar), RAS (Rajasthan), MPPSC (Madhya Pradesh), HPSC (Haryana), UKPSC (Uttarakhand), CGPSC (Chhattisgarh), GPSC (Gujarat), JPSC (Jharkhand), OPSC (Odisha), WBCS (West Bengal), MPSC (Maharashtra), TNPSC (Tamil Nadu), APPSC (Andhra Pradesh), KPSC (Karnataka), PPSC (Punjab), GPSC (Goa), HPPSC (Himachal), JKPSC (Jammu & Kashmir), and TPSC (Tripura).",
+    "category": "UPSC",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.33,
-    "path": "question_papers/state_psc.json",
-    "sections": { "history": 15, "polity": 15, "geography": 15, "economy": 15, "current_affairs": 15, "state_gk": 25 },
-    "coveredExams": [
-      "UPPCS (Uttar Pradesh)", "BPSC (Bihar)", "RAS (Rajasthan)", "MPPSC (Madhya Pradesh)", 
-      "HPSC (Haryana)", "UKPSC (Uttarakhand)", "CGPSC (Chhattisgarh)", "GPSC (Gujarat)", 
-      "JPSC (Jharkhand)", "OPSC (Odisha)", "WBCS (West Bengal)", "MPSC (Maharashtra)", 
-      "TNPSC (Tamil Nadu)", "APPSC (Andhra Pradesh)", "KPSC (Karnataka)", "PPSC (Punjab)", 
-      "GPSC (Goa)", "HPPSC (Himachal)", "JKPSC (Jammu & Kashmir)", "TPSC (Tripura)"
+    "passingMarks": 40,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "history",
+        "title": "History",
+        "questionCount": 15
+      },
+      {
+        "id": "polity",
+        "title": "Polity",
+        "questionCount": 15
+      },
+      {
+        "id": "geography",
+        "title": "Geography",
+        "questionCount": 15
+      },
+      {
+        "id": "economy",
+        "title": "Economy",
+        "questionCount": 15
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 15
+      },
+      {
+        "id": "state_gk",
+        "title": "State GK",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "UPPCS (Uttar Pradesh)",
+      "BPSC (Bihar)",
+      "RAS (Rajasthan)",
+      "MPPSC (Madhya Pradesh)",
+      "HPSC (Haryana)",
+      "UKPSC (Uttarakhand)",
+      "CGPSC (Chhattisgarh)",
+      "GPSC (Gujarat)",
+      "JPSC (Jharkhand)",
+      "OPSC (Odisha)",
+      "WBCS (West Bengal)",
+      "MPSC (Maharashtra)",
+      "TNPSC (Tamil Nadu)",
+      "APPSC (Andhra Pradesh)",
+      "KPSC (Karnataka)",
+      "PPSC (Punjab)",
+      "GPSC (Goa)",
+      "HPPSC (Himachal)",
+      "JKPSC (Jammu & Kashmir)",
+      "TPSC (Tripura)"
     ]
   },
   {
     "id": "police_constable",
-    "name": "Police Constable",
-    "basePattern": "POLICE",
-    "difficulty": "easy",
+    "title": "Police Constable",
+    "description": "Easy level Police pattern mock test for Police Constable exams across UP, Bihar, Punjab, Haryana, Delhi, MP, Rajasthan, West Bengal, Odisha, Maharashtra, Gujarat, Jharkhand, Chhattisgarh, HP, Karnataka, AP, Telangana, and Assam.",
+    "category": "POLICE",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
+    "negativeMarking": 0,
+    "passingMarks": 40,
     "layoutType": "STANDARD",
-    "totalDuration": 120,
-    "negativeMarking": 0.00,
-    "path": "question_papers/police_constable.json",
-    "sections": { "math": 25, "reasoning": 25, "gk": 25, "current_affairs": 25 },
-    "coveredExams": [
-      "UP Police Constable", "Bihar Police Constable", "Punjab Police Constable", 
-      "Haryana Police Constable", "Delhi Police Constable", "MP Police Constable", 
-      "Rajasthan Police Constable", "West Bengal Police Constable", "Odisha Police Constable", 
-      "Maharashtra Police Constable", "Gujarat Police Lokrakshak", "Jharkhand Police Constable",
-      "Chhattisgarh Police Constable", "HP Police Constable", "Karnataka Police Constable",
-      "AP Police Constable", "Telangana Police Constable", "Assam Police Constable"
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "UP Police Constable",
+      "Bihar Police Constable",
+      "Punjab Police Constable",
+      "Haryana Police Constable",
+      "Delhi Police Constable",
+      "MP Police Constable",
+      "Rajasthan Police Constable",
+      "West Bengal Police Constable",
+      "Odisha Police Constable",
+      "Maharashtra Police Constable",
+      "Gujarat Police Lokrakshak",
+      "Jharkhand Police Constable",
+      "Chhattisgarh Police Constable",
+      "HP Police Constable",
+      "Karnataka Police Constable",
+      "AP Police Constable",
+      "Telangana Police Constable",
+      "Assam Police Constable"
     ]
   },
   {
     "id": "police_si",
-    "name": "Police SI",
-    "basePattern": "POLICE",
-    "difficulty": "medium",
-    "layoutType": "STANDARD",
-    "totalDuration": 120,
+    "title": "Police SI",
+    "description": "Medium level Police pattern mock test for Police Sub Inspector exams across UP, Bihar, Rajasthan, MP, Delhi, Haryana, Punjab, Maharashtra, West Bengal, Odisha, Jharkhand, Chhattisgarh, Karnataka, Telangana, and AP.",
+    "category": "POLICE",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.25,
-    "path": "question_papers/police_si.json",
-    "sections": { "math": 25, "reasoning": 25, "gk": 25, "law": 25 },
-    "coveredExams": [
-      "UP Police SI", "Bihar Police SI", "Rajasthan Police SI", "MP Police Sub Inspector",
-      "Delhi Police Sub Inspector (Executive)", "Haryana Police SI", "Punjab Police SI",
-      "Maharashtra Police SI", "West Bengal Police SI", "Odisha Police SI", "Jharkhand Police SI",
-      "Chhattisgarh Police SI", "Karnataka Police SI", "Telangana Police SI", "AP Police SI"
+    "passingMarks": 40,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      },
+      {
+        "id": "law",
+        "title": "Law",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "UP Police SI",
+      "Bihar Police SI",
+      "Rajasthan Police SI",
+      "MP Police Sub Inspector",
+      "Delhi Police Sub Inspector (Executive)",
+      "Haryana Police SI",
+      "Punjab Police SI",
+      "Maharashtra Police SI",
+      "West Bengal Police SI",
+      "Odisha Police SI",
+      "Jharkhand Police SI",
+      "Chhattisgarh Police SI",
+      "Karnataka Police SI",
+      "Telangana Police SI",
+      "AP Police SI"
     ]
   },
   {
     "id": "ctet",
-    "name": "CTET",
-    "basePattern": "TEACHING",
-    "difficulty": "medium",
+    "title": "CTET",
+    "description": "Medium level Teaching pattern mock test for CTET Paper 1, CTET Paper 2, HTET (Haryana), REET (Rajasthan), UPTET (Uttar Pradesh), BTET (Bihar), MPTET (Madhya Pradesh), MAHATET (Maharashtra), TNTET (Tamil Nadu), TSTET (Telangana), APTET (Andhra Pradesh), UTET (Uttarakhand), OTET (Odisha), WB TET (West Bengal), KARTET (Karnataka), and HP TET (Himachal).",
+    "category": "TEACHING",
+    "duration": 150,
+    "total_questions": 150,
+    "total_marks": 150,
+    "negativeMarking": 0,
+    "passingMarks": 60,
     "layoutType": "STANDARD",
-    "totalDuration": 150,
-    "negativeMarking": 0.00,
-    "path": "question_papers/ctet.json",
-    "sections": { "cdp": 30, "language1": 30, "language2": 30, "math": 30, "evs": 30 },
-    "coveredExams": [
-      "CTET Paper 1", "CTET Paper 2", "HTET (Haryana)", "REET (Rajasthan)", 
-      "UPTET (Uttar Pradesh)", "BTET (Bihar)", "MPTET (Madhya Pradesh)", 
-      "MAHATET (Maharashtra)", "TNTET (Tamil Nadu)", "TSTET (Telangana)", 
-      "APTET (Andhra Pradesh)", "UTET (Uttarakhand)", "OTET (Odisha)", 
-      "WB TET (West Bengal)", "KARTET (Karnataka)", "HP TET (Himachal)"
+    "questions": [],
+    "sections": [
+      {
+        "id": "cdp",
+        "title": "CDP",
+        "questionCount": 30
+      },
+      {
+        "id": "language1",
+        "title": "Language 1",
+        "questionCount": 30
+      },
+      {
+        "id": "language2",
+        "title": "Language 2",
+        "questionCount": 30
+      },
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 30
+      },
+      {
+        "id": "evs",
+        "title": "EVS",
+        "questionCount": 30
+      }
+    ],
+    "specialties": [
+      "CTET Paper 1",
+      "CTET Paper 2",
+      "HTET (Haryana)",
+      "REET (Rajasthan)",
+      "UPTET (Uttar Pradesh)",
+      "BTET (Bihar)",
+      "MPTET (Madhya Pradesh)",
+      "MAHATET (Maharashtra)",
+      "TNTET (Tamil Nadu)",
+      "TSTET (Telangana)",
+      "APTET (Andhra Pradesh)",
+      "UTET (Uttarakhand)",
+      "OTET (Odisha)",
+      "WB TET (West Bengal)",
+      "KARTET (Karnataka)",
+      "HP TET (Himachal)"
     ]
   },
   {
     "id": "ugc_net",
-    "name": "UGC NET",
-    "basePattern": "TEACHING",
-    "difficulty": "hard",
+    "title": "UGC NET",
+    "description": "Hard level Teaching pattern mock test for UGC NET Paper 1 and related exams including CSIR NET Part A, MH-SET (Maharashtra), KSET (Karnataka), WBSET (West Bengal), GSET (Gujarat), APSET (Andhra Pradesh), JKSET (Jammu), MP SET (Madhya Pradesh), and HP SET (Himachal).",
+    "category": "TEACHING",
+    "duration": 180,
+    "total_questions": 40,
+    "total_marks": 40,
+    "negativeMarking": 0,
+    "passingMarks": 16,
     "layoutType": "STANDARD",
-    "totalDuration": 180,
-    "negativeMarking": 0.00,
-    "path": "question_papers/ugc_net.json",
-    "sections": { "teaching_aptitude": 10, "research_aptitude": 10, "reasoning": 10, "ict": 5, "current_affairs": 5 },
-    "coveredExams": [
-      "UGC NET Paper 1", "CSIR NET Part A", "MH-SET (Maharashtra)", "KSET (Karnataka)", 
-      "WBSET (West Bengal)", "GSET (Gujarat)", "APSET (Andhra Pradesh)", "JKSET (Jammu)", 
-      "MP SET (Madhya Pradesh)", "HP SET (Himachal)"
+    "questions": [],
+    "sections": [
+      {
+        "id": "teaching_aptitude",
+        "title": "Teaching Aptitude",
+        "questionCount": 10
+      },
+      {
+        "id": "research_aptitude",
+        "title": "Research Aptitude",
+        "questionCount": 10
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 10
+      },
+      {
+        "id": "ict",
+        "title": "ICT",
+        "questionCount": 5
+      },
+      {
+        "id": "current_affairs",
+        "title": "Current Affairs",
+        "questionCount": 5
+      }
+    ],
+    "specialties": [
+      "UGC NET Paper 1",
+      "CSIR NET Part A",
+      "MH-SET (Maharashtra)",
+      "KSET (Karnataka)",
+      "WBSET (West Bengal)",
+      "GSET (Gujarat)",
+      "APSET (Andhra Pradesh)",
+      "JKSET (Jammu)",
+      "MP SET (Madhya Pradesh)",
+      "HP SET (Himachal)"
     ]
   },
   {
     "id": "agniveer",
-    "name": "Agniveer",
-    "basePattern": "DEFENSE",
-    "difficulty": "medium",
+    "title": "Agniveer",
+    "description": "Medium level Defense pattern mock test for Army Agniveer GD, Army Agniveer Clerk, Army Agniveer Technical, Navy SSR Agniveer, Navy MR Agniveer, Air Force Agniveer Vayu Science, Air Force Agniveer Non-Science, and Indian Coast Guard Navik DB/GD.",
+    "category": "DEFENSE",
+    "duration": 60,
+    "total_questions": 100,
+    "total_marks": 100,
+    "negativeMarking": 0.5,
+    "passingMarks": 40,
     "layoutType": "STANDARD",
-    "totalDuration": 60,
-    "negativeMarking": 0.50,
-    "path": "question_papers/agniveer.json",
-    "sections": { "math": 25, "science": 25, "reasoning": 25, "gk": 25 },
-    "coveredExams": [
-      "Army Agniveer GD", "Army Agniveer Clerk", "Army Agniveer Technical", 
-      "Navy SSR Agniveer", "Navy MR Agniveer", "Air Force Agniveer Vayu Science", 
-      "Air Force Agniveer Non-Science", "Indian Coast Guard Navik DB/GD"
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "science",
+        "title": "Science",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "Army Agniveer GD",
+      "Army Agniveer Clerk",
+      "Army Agniveer Technical",
+      "Navy SSR Agniveer",
+      "Navy MR Agniveer",
+      "Air Force Agniveer Vayu Science",
+      "Air Force Agniveer Non-Science",
+      "Indian Coast Guard Navik DB/GD"
     ]
   },
   {
     "id": "afcat",
-    "name": "AFCAT",
-    "basePattern": "DEFENSE",
-    "difficulty": "hard",
+    "title": "AFCAT",
+    "description": "Hard level Defense pattern mock test for AFCAT Entry, NDA National Defence Academy, CDS Combined Defence Services, Indian Navy INET, and Territorial Army Officer.",
+    "category": "DEFENSE",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
+    "negativeMarking": 1,
+    "passingMarks": 40,
     "layoutType": "STANDARD",
-    "totalDuration": 120,
-    "negativeMarking": 1.00,
-    "path": "question_papers/afcat.json",
-    "sections": { "english": 25, "reasoning": 25, "military_aptitude": 25, "gk": 25 },
-    "coveredExams": [
-      "AFCAT Entry", "NDA National Defence Academy", "CDS Combined Defence Services", 
-      "Indian Navy INET", "Territorial Army Officer"
+    "questions": [],
+    "sections": [
+      {
+        "id": "english",
+        "title": "English",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "military_aptitude",
+        "title": "Military Aptitude",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "AFCAT Entry",
+      "NDA National Defence Academy",
+      "CDS Combined Defence Services",
+      "Indian Navy INET",
+      "Territorial Army Officer"
     ]
   },
   {
     "id": "gate",
-    "name": "GATE",
-    "basePattern": "ENGINEERING",
-    "difficulty": "expert",
-    "layoutType": "TECH_SPLIT",
-    "totalDuration": 180,
+    "title": "GATE",
+    "description": "Expert level Engineering pattern mock test for GATE CSE, GATE ECE, GATE ME, GATE EE, GATE CE, BARC OCES Trainee Scientist, ISRO Scientist Engineer, DRDO Scientist B Entry, NPCIL Executive Trainee, and IOCL Graduate Engineer.",
+    "category": "ENGINEERING",
+    "duration": 180,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.66,
-    "path": "question_papers/gate.json",
-    "sections": { "aptitude": 15, "engineering_math": 15, "technical_subject": 70 },
-    "coveredExams": [
-      "GATE CSE", "GATE ECE", "GATE ME", "GATE EE", "GATE CE", 
-      "BARC OCES Trainee Scientist", "ISRO Scientist Engineer", 
-      "DRDO Scientist B Entry", "NPCIL Executive Trainee", "IOCL Graduate Engineer"
+    "passingMarks": 25,
+    "layoutType": "TECH_SPLIT",
+    "questions": [],
+    "sections": [
+      {
+        "id": "aptitude",
+        "title": "Aptitude",
+        "questionCount": 15
+      },
+      {
+        "id": "engineering_math",
+        "title": "Engineering Math",
+        "questionCount": 15
+      },
+      {
+        "id": "technical_subject",
+        "title": "Technical Subject",
+        "questionCount": 70
+      }
+    ],
+    "specialties": [
+      "GATE CSE",
+      "GATE ECE",
+      "GATE ME",
+      "GATE EE",
+      "GATE CE",
+      "BARC OCES Trainee Scientist",
+      "ISRO Scientist Engineer",
+      "DRDO Scientist B Entry",
+      "NPCIL Executive Trainee",
+      "IOCL Graduate Engineer"
     ]
   },
   {
     "id": "ssc_je",
-    "name": "SSC JE",
-    "basePattern": "ENGINEERING",
-    "difficulty": "hard",
-    "layoutType": "TECH_SPLIT",
-    "totalDuration": 120,
+    "title": "SSC JE",
+    "description": "Hard level Engineering pattern mock test for SSC JE Civil, SSC JE Electrical, SSC JE Mechanical, RRB JE (Junior Engineer), UPPCL JE, DMRC JE, State PSC AE (Assistant Engineer), State PSC JE, PGCIL Diploma Trainee, and Vizag Steel MT.",
+    "category": "ENGINEERING",
+    "duration": 120,
+    "total_questions": 200,
+    "total_marks": 200,
     "negativeMarking": 0.25,
-    "path": "question_papers/ssc_je.json",
-    "sections": { "reasoning": 50, "gk": 50, "technical_subject": 100 },
-    "coveredExams": [
-      "SSC JE Civil", "SSC JE Electrical", "SSC JE Mechanical", "RRB JE (Junior Engineer)", 
-      "UPPCL JE", "DMRC JE", "State PSC AE (Assistant Engineer)", "State PSC JE", 
-      "PGCIL Diploma Trainee", "vizag Steel MT"
+    "passingMarks": 80,
+    "layoutType": "TECH_SPLIT",
+    "questions": [],
+    "sections": [
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 50
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 50
+      },
+      {
+        "id": "technical_subject",
+        "title": "Technical Subject",
+        "questionCount": 100
+      }
+    ],
+    "specialties": [
+      "SSC JE Civil",
+      "SSC JE Electrical",
+      "SSC JE Mechanical",
+      "RRB JE (Junior Engineer)",
+      "UPPCL JE",
+      "DMRC JE",
+      "State PSC AE (Assistant Engineer)",
+      "State PSC JE",
+      "PGCIL Diploma Trainee",
+      "Vizag Steel MT"
     ]
   },
   {
     "id": "pcs_j",
-    "name": "Judiciary",
-    "basePattern": "LAW",
-    "difficulty": "expert",
-    "layoutType": "PASSAGE_SPLIT",
-    "totalDuration": 120,
+    "title": "Judiciary",
+    "description": "Expert level Law pattern mock test for PCS J (UP Civil Judge), Bihar Judiciary Exam, Delhi Judicial Services (DJS), Rajasthan Judicial Services (RJS), MP Judiciary (MP PJ), CLAT PG, AILET PG, SEBI Officer Grade A Law, and IBPS Law Officer Scale I.",
+    "category": "LAW",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.33,
-    "path": "question_papers/pcs_j.json",
-    "sections": { "constitution": 20, "ipc": 20, "crpc": 20, "cpc": 20, "evidence": 20 },
-    "coveredExams": [
-      "PCS J (UP Civil Judge)", "Bihar Judiciary Exam", "Delhi Judicial Services (DJS)", 
-      "Rajasthan Judicial Services (RJS)", "MP Judiciary (MP PJ)", "CLAT PG", 
-      "AILET PG", "SEBI Officer Grade A Law", "IBPS Law Officer Scale I"
+    "passingMarks": 35,
+    "layoutType": "PASSAGE_SPLIT",
+    "questions": [],
+    "sections": [
+      {
+        "id": "constitution",
+        "title": "Constitution",
+        "questionCount": 20
+      },
+      {
+        "id": "ipc",
+        "title": "IPC",
+        "questionCount": 20
+      },
+      {
+        "id": "crpc",
+        "title": "CrPC",
+        "questionCount": 20
+      },
+      {
+        "id": "cpc",
+        "title": "CPC",
+        "questionCount": 20
+      },
+      {
+        "id": "evidence",
+        "title": "Evidence",
+        "questionCount": 20
+      }
+    ],
+    "specialties": [
+      "PCS J (UP Civil Judge)",
+      "Bihar Judiciary Exam",
+      "Delhi Judicial Services (DJS)",
+      "Rajasthan Judicial Services (RJS)",
+      "MP Judiciary (MP PJ)",
+      "CLAT PG",
+      "AILET PG",
+      "SEBI Officer Grade A Law",
+      "IBPS Law Officer Scale I"
     ]
   },
   {
     "id": "norcet",
-    "name": "NORCET",
-    "basePattern": "MEDICAL",
-    "difficulty": "hard",
-    "layoutType": "STANDARD",
-    "totalDuration": 180,
+    "title": "NORCET",
+    "description": "Hard level Medical pattern mock test for AIIMS NORCET Nurse, RRB Staff Nurse Exam, ESIC Staff Nurse, State CHO (Community Health Officer), SGPGI Nursing Officer, JIPMER Nursing Officer, and GMCH Staff Nurse.",
+    "category": "MEDICAL",
+    "duration": 180,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.33,
-    "path": "question_papers/norcet.json",
-    "sections": { "nursing": 70, "gk": 10, "aptitude": 10, "reasoning": 10 },
-    "coveredExams": [
-      "AIIMS NORCET Nurse", "RRB Staff Nurse Exam", "ESIC Staff Nurse", 
-      "State CHO (Community Health Officer)", "SGPGI Nursing Officer", 
-      "JIPMER Nursing Officer", "GMCH Staff Nurse"
+    "passingMarks": 40,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "nursing",
+        "title": "Nursing",
+        "questionCount": 70
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 10
+      },
+      {
+        "id": "aptitude",
+        "title": "Aptitude",
+        "questionCount": 10
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 10
+      }
+    ],
+    "specialties": [
+      "AIIMS NORCET Nurse",
+      "RRB Staff Nurse Exam",
+      "ESIC Staff Nurse",
+      "State CHO (Community Health Officer)",
+      "SGPGI Nursing Officer",
+      "JIPMER Nursing Officer",
+      "GMCH Staff Nurse"
     ]
   },
   {
     "id": "group_cd",
-    "name": "Group C/D",
-    "basePattern": "GROUP_CD",
-    "difficulty": "easy",
-    "layoutType": "STANDARD",
-    "totalDuration": 120,
+    "title": "Group C/D",
+    "description": "Easy level Group C/D pattern mock test for UPSSSC PET, HSSC CET (Haryana), RSMSSB CET (Rajasthan), UP Lekhpal, MP Patwari, Bihar Revenue Employee, BSSC Inter Level Exam, UKSSSC VDO, PSSSB Clerk, OSSC Combined Recruitment, WBSSC Clerkship, JKSSB Graduate Level, High Court Clerk Exam, District Court Stenographer, and RO/ARO Samiksha Adhikari.",
+    "category": "GROUP_CD",
+    "duration": 120,
+    "total_questions": 100,
+    "total_marks": 100,
     "negativeMarking": 0.25,
-    "path": "question_papers/group_cd.json",
-    "sections": { "math": 25, "reasoning": 25, "gk": 25, "computer": 25 },
-    "coveredExams": [
-      "UPSSSC PET", "HSSC CET (Haryana)", "RSMSSB CET (Rajasthan)", "UP Lekhpal", 
-      "MP Patwari", "Bihar Revenue Employee", "BSSC Inter Level Exam", "UKSSSC VDO", 
-      "PSSSB Clerk", "OSSC Combined Recruitment", "WBSSC Clerkship", "JKSSB Graduate Level",
-      "High Court Clerk Exam", "District Court Stenographer", "RO/ARO Samiksha Adhikari"
+    "passingMarks": 40,
+    "layoutType": "STANDARD",
+    "questions": [],
+    "sections": [
+      {
+        "id": "math",
+        "title": "Math",
+        "questionCount": 25
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "questionCount": 25
+      },
+      {
+        "id": "gk",
+        "title": "GK",
+        "questionCount": 25
+      },
+      {
+        "id": "computer",
+        "title": "Computer",
+        "questionCount": 25
+      }
+    ],
+    "specialties": [
+      "UPSSSC PET",
+      "HSSC CET (Haryana)",
+      "RSMSSB CET (Rajasthan)",
+      "UP Lekhpal",
+      "MP Patwari",
+      "Bihar Revenue Employee",
+      "BSSC Inter Level Exam",
+      "UKSSSC VDO",
+      "PSSSB Clerk",
+      "OSSC Combined Recruitment",
+      "WBSSC Clerkship",
+      "JKSSB Graduate Level",
+      "High Court Clerk Exam",
+      "District Court Stenographer",
+      "RO/ARO Samiksha Adhikari"
     ]
   }
 ]
