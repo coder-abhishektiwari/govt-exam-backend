@@ -12,7 +12,7 @@ from datetime import datetime
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
 from config import CACHE_DIR, MAX_CACHE_FILES, ANNOUNCEMENTS_FILE, BULLETINS_FILE, ANALYTICS_FILE
-from models import PDFGenerationRequest, QuestionPaper, Section, Announcement, Bulletin, AnalyticsMetric, DailyQuizResponse, QuizCategory
+from models import PDFGenerationRequest, QuestionPaper, Section, Announcement, Bulletin, AnalyticsMetric, QuizQuestion, DailyQuizFile, QuizTopicsResponse, QuizTopic
 from paper_repository import paper_repository
 app = FastAPI(title="Question Paper PDF Generator")
 
