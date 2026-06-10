@@ -20,5 +20,47 @@
       "description": "DB Delivery Latency",
       "value": "latency"
     }
+  ],
+  "leaderboard_data": [
+    {
+      "name": "Aarav Sharma",
+      "score": 980,
+      "badge": "🥇"
+    },
+    {
+      "name": "Priya Patel",
+      "score": 945,
+      "badge": "🥈"
+    },
+    {
+      "name": "Rohan Singh",
+      "score": 920,
+      "badge": "🥉"
+    },
+    {
+      "name": "Ananya Gupta",
+      "score": 895
+    },
+    {
+      "name": "Vikram Reddy",
+      "score": 870
+    }
+  ],
+  "testimonialsData": [
+    {
+      "name": "Aman Kumar",
+      "message": "This portal helped me crack SSC CGL in first attempt. The mock tests are exactly like real exam.",
+      "rating": 5
+    },
+    {
+      "name": "Sneha Verma",
+      "message": "Daily quiz kept my preparation consistent. Excellent study material and free PDFs.",
+      "rating": 5
+    },
+    {
+      "name": "Karan Mehta",
+      "message": "Best free platform for government exam preparation. Highly recommend to all aspirants.",
+      "rating": 5
+    }
   ]
 }
