@@ -1,74 +1,124 @@
 {
   "bulletins": [
     {
-      "id": "bulletin-cgl",
-      "date": "June 06, 2026",
-      "title": "Combined Graduate Level Examination (CGL) 2026 - Online application window closing soon.",
-      "link": "https://ssc.gov.in/ApplicationForm/cglform",
-      "is_new": true
+      "id": "bulletin-ntpc-ug-admit",
+      "date": "June 09, 2026",
+      "title": "RRB NTPC UG Admit Card 2026 released for 13–20 June exam. Download from your regional RRB website now.",
+      "link": "https://rrb.digialm.com"
     },
     {
-      "id": "bulletin-chsl",
-      "date": "June 06, 2026",
-      "title": "Combined Higher Secondary Level (CHSL) 2026 - Admit card release date announced.",
-      "link": "https://ssc.gov.in/ApplicationForm/chslform",
-      "is_new": true
+      "id": "bulletin-cgl-apply",
+      "date": "June 10, 2026",
+      "title": "SSC CGL 2026 – Apply online before 22 June 2026. 12,256 vacancies for Group B & C posts. Fee payment last date: 23 June.",
+      "link": "https://ssc.gov.in"
     },
     {
-      "id": "bulletin-steno",
+      "id": "bulletin-ntpc-ug-phase2",
+      "date": "June 08, 2026",
+      "title": "RRB NTPC UG Phase 2 CBT 1 Exam – Revised schedule: 13 to 20 June 2026. City intimation slip activated.",
+      "link": "https://rrb.digialm.com"
+    },
+    {
+      "id": "bulletin-cgl-sectional",
+      "date": "June 08, 2026",
+      "title": "SSC CGL 2026 – New exam pattern: Sectional timing introduced in both Tier 1 & Tier 2. AAO paper added in Tier 2.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-cgl-correction",
+      "date": "June 08, 2026",
+      "title": "SSC CGL 2026 – Form correction window to open 29 June to 1 July 2026. Candidates can rectify application errors.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-advisory",
       "date": "June 05, 2026",
-      "title": "Stenographer Grade 'C' and 'D' Examination 2026 - Exam pattern revised.",
-      "link": "https://ssc.gov.in/ApplicationForm/Index",
-      "is_new": true
+      "title": "⚠️ ADVISORY: SSC warns against impersonation & malpractice. Strict legal action will be taken against offenders.",
+      "link": "https://ssc.gov.in"
     },
     {
-      "id": "bulletin-capf",
+      "id": "bulletin-steno-2026",
+      "date": "June 05, 2026",
+      "title": "SSC Stenographer Grade C & D 2026 – Notification released. CBE tentatively scheduled for July–August 2026.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-chsl-notification",
       "date": "June 04, 2026",
-      "title": "Sub-Inspector in Delhi Police & CAPF Examination 2026 - PET schedule released.",
-      "link": "https://ssc.gov.in/ApplicationForm/sicpoform",
-      "is_new": true
+      "title": "SSC CHSL 2026 – Notification expected shortly. Tier 1 exam scheduled July–September 2026. Class 12 pass eligible.",
+      "link": "https://ssc.gov.in"
     },
     {
-      "id": "bulletin-je",
+      "id": "bulletin-ssc-capf",
+      "date": "June 04, 2026",
+      "title": "SSC CPO SI 2026 – Sub-Inspector in Delhi Police & CAPF notification released. Apply at ssc.gov.in.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-ntpc-ug-cityslip",
       "date": "June 03, 2026",
-      "title": "Junior Engineer Examination 2026 - Last date to apply extended.",
-      "link": "https://ssc.gov.in/ApplicationForm/jemecform",
-      "is_new": true
+      "title": "RRB NTPC UG Phase 2 City Intimation Slip live for 13–20 June exam. Check exam city, date & shift details.",
+      "link": "https://rrb.digialm.com"
     },
     {
-      "id": "bulletin-mts",
+      "id": "bulletin-mts-notification",
       "date": "June 02, 2026",
-      "title": "Multi Tasking Staff (MTS) Examination - Application correction window opened.",
-      "link": "https://ssc.gov.in/ApplicationForm/Mtsform",
-      "is_new": false
+      "title": "SSC MTS 2026 – Official notification to be released 30 June 2026. Exam expected September–November 2026.",
+      "link": "https://ssc.gov.in"
     },
     {
-      "id": "bulletin-jht",
+      "id": "bulletin-ssc-phase14",
+      "date": "June 01, 2026",
+      "title": "SSC Selection Post Phase 14 – Notification released. Multiple graduate & non-graduate post vacancies open.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-ugcnet-june",
       "date": "May 30, 2026",
-      "title": "Combined Hindi Translators Examination 2026 - Answer key challenge active.",
-      "link": "https://ssc.gov.in/ApplicationForm/jhtform",
-      "is_new": false
+      "title": "UGC NET June 2026 – Notification out. Registration active at ugcnet.nta.nic.in for Assistant Professor & JRF.",
+      "link": "https://ugcnet.nta.nic.in"
     },
     {
-      "id": "bulletin-rhq",
+      "id": "bulletin-ssc-jht",
+      "date": "May 30, 2026",
+      "title": "SSC JHT 2026 – Combined Hindi Translators Examination notification released. Apply at ssc.gov.in.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-ssc-je",
       "date": "May 28, 2026",
-      "title": "Selection Posts Examination - Result declared for various categories.",
-      "link": "https://ssc.gov.in/RHQSelectionPost/ApplicationForm",
-      "is_new": false
+      "title": "SSC JE 2026 – Junior Engineer exam notification released. Tier 1 CBE scheduled May–June 2026.",
+      "link": "https://ssc.gov.in"
     },
     {
-      "id": "bulletin-malpractice",
-      "date": "June 05, 2026",
-      "title": "⚠️ ADVISORY: Strict action against exam malpractice and solver gangs.",
-      "link": "https://ssc.gov.in/advisory",
-      "is_new": true
+      "id": "bulletin-rrb-groupd",
+      "date": "May 25, 2026",
+      "title": "RRB Group D 2026 – Notification expected October 2026 as per RRB Exam Calendar 2026–27.",
+      "link": "https://rrbapply.gov.in"
     },
     {
-      "id": "bulletin-admit",
-      "date": "June 04, 2026",
-      "title": "Direct link activated for downloading candidate admit slips across all zones.",
-      "link": "https://ssc.gov.in/admitcard",
-      "is_new": true
+      "id": "bulletin-rrb-je",
+      "date": "May 22, 2026",
+      "title": "RRB JE 2026 – Notification expected July 2026. Vacancies for Junior Engineer, DMS & CMA posts.",
+      "link": "https://rrbapply.gov.in"
+    },
+    {
+      "id": "bulletin-ntpc-vacancy",
+      "date": "May 20, 2026",
+      "title": "RRB NTPC 2026 – Total 8,868 vacancies: 5,810 graduate level + 3,058 undergraduate level posts across all zones.",
+      "link": "https://rrbapply.gov.in"
+    },
+    {
+      "id": "bulletin-ssc-calendar",
+      "date": "May 15, 2026",
+      "title": "SSC Exam Calendar 2026–27 released. Download PDF from ssc.gov.in for all notification & exam dates.",
+      "link": "https://ssc.gov.in"
+    },
+    {
+      "id": "bulletin-cgl-tier1-date",
+      "date": "May 21, 2026",
+      "title": "SSC CGL Tier 1 2026 – Exam tentatively scheduled August–September 2026. Tier 2 expected December 2026.",
+      "link": "https://ssc.gov.in"
     }
   ]
 }

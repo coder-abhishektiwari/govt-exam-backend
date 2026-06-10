@@ -1,28 +1,42 @@
-{
-  "announcements": [
-    {
-      "id": "up-police-2026",
-      "title": "UP Police Constable 2026",
-      "description": "OMR written examination scheduled on June 8, 9, and 10, 2026. Final admit cards available now.",
-      "icon": "⚠️",
-      "link": "#",
-      "isNew": true
-    },
-    {
-      "id": "state-civil-services",
-      "title": "State Civil Services Hub",
-      "description": "Last-minute high-yield crash course revisions compiled for downstream modules.",
-      "icon": "📢",
-      "link": "#",
-      "isNew": true
-    },
-    {
-      "id": "system-check",
-      "title": "System Check Notice",
-      "description": "Server backups are active. All daily high-speed study pipelines remain operational.",
-      "icon": "⚡",
-      "link": "#",
-      "isNew": true
-    }
-  ]
-}
+[
+  {
+    "id": "rrb-ntpc-ug-2026",
+    "title": "RRB NTPC UG CBT-1 Phase 2",
+    "description": "Phase 2 exam June 13–20, 2026. Admit card 4 days before exam date at rrb.digialm.com. 8,868 total vacancies.",
+    "icon": "🚆",
+    "link": "https://indianrailways.gov.in",
+    "isNew": true
+  },
+  {
+    "id": "upsc-prelims-result-2026",
+    "title": "UPSC CSE Prelims Result 2026",
+    "description": "Result expected June 9–14, 2026 at upsc.gov.in. Exam held on May 24; provisional answer key already released.",
+    "icon": "📢",
+    "link": "https://upsc.gov.in",
+    "isNew": true
+  },
+  {
+    "id": "ssc-cgl-2026",
+    "title": "SSC CGL 2026",
+    "description": "12,256 vacancies notified. Apply online by June 22, 2026 at ssc.gov.in. Tier-1 exam: Aug–Sep 2026.",
+    "icon": "📝",
+    "link": "https://ssc.gov.in",
+    "isNew": true
+  },
+  {
+    "id": "upsc-mains-2026",
+    "title": "UPSC CSE Mains 2026",
+    "description": "Mains scheduled from August 21, 2026. Start preparation now — window after Prelims result is short.",
+    "icon": "🎯",
+    "link": "https://upsc.gov.in",
+    "isNew": false
+  },
+  {
+    "id": "ssc-cgl-correction-2026",
+    "title": "SSC CGL Form Correction Window",
+    "description": "Application correction window open June 29 – July 1, 2026. Fee payment deadline: June 23.",
+    "icon": "✏️",
+    "link": "https://ssc.gov.in",
+    "isNew": true
+  }
+]
